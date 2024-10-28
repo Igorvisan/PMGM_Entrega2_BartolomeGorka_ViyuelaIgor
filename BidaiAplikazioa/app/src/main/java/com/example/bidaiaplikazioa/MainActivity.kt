@@ -4,10 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -85,10 +89,29 @@ fun paginaPrincipal(modifier: Modifier = Modifier){
         color = colorResource(id = R.color.white)
     ){
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(vertical = 20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         )
         {
-            Text("Hello")
+            Column(modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .width(350.dp)
+                .height(240.dp)
+            )
+            {
+
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            Column(modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .width(350.dp)
+                .height(240.dp)
+            )
+            {
+
+            }
         }
 
     }
