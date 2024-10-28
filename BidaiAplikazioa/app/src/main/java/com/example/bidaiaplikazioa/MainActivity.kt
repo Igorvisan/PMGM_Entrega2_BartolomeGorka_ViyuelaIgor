@@ -82,7 +82,7 @@ fun pantallaIniciarSesion(
 fun paginaPrincipal(modifier: Modifier = Modifier){
     Surface (
         modifier,
-        color = colorResource(id = R.color.cream)
+        color = colorResource(id = R.color.white)
     ){
         Column(
             modifier = Modifier.fillMaxSize()
