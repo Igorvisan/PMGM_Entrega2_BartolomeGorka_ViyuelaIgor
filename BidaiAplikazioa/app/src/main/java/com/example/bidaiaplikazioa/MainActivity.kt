@@ -10,15 +10,20 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -32,8 +37,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.bidaiaplikazioa.ui.theme.BidaiAplikazioaTheme
 
 
@@ -90,6 +98,10 @@ fun pantallaIniciarSesion(
 
 @Composable
 fun paginaPrincipal(modifier: Modifier = Modifier){
+    val tolosaImage = painterResource(R.drawable.tolosa)
+    val donostiImage = painterResource(R.drawable.san_sebastian_3)
+    val zumarragaImage = painterResource(R.drawable.zumarraga)
+    val bilbaoImage = painterResource(R.drawable.bilbao)
     Surface (
         modifier,
         color = colorResource(id = R.color.white)
@@ -97,26 +109,300 @@ fun paginaPrincipal(modifier: Modifier = Modifier){
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(vertical = 20.dp),
+                .padding(vertical = 100.dp)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         )
         {
-            Column(modifier = Modifier
+            Row(modifier = Modifier
                 .background(color = colorResource(id = R.color.cream))
-                .width(350.dp)
+                .width(390.dp)
                 .height(240.dp)
             )
             {
-
+                Column (modifier = Modifier
+                    .fillMaxHeight()
+                    .width(200.dp))
+                {
+                    Row (
+                        modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "TOLOSA",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .offset(x = (-10).dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "Tolosa, un destino lleno de historia y tradiciones vascas.",
+                            textAlign = TextAlign.Center,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.W200
+                        )
+                    }
+                }
+                Column (modifier = Modifier
+                    .fillMaxWidth()
+                    .width(200.dp)
+                )
+                {
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Image(
+                            painter = tolosaImage,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(180.dp)
+                                .height(150.dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        ElevatedButton(onClick = {}) {
+                            Text(
+                                text = "Viajar"
+                            )
+                        }
+                    }
+                }
             }
             Spacer(modifier = Modifier.height(20.dp))
-            Column(modifier = Modifier
+            Row(modifier = Modifier
                 .background(color = colorResource(id = R.color.cream))
-                .width(350.dp)
+                .width(390.dp)
                 .height(240.dp)
             )
             {
-
+                Column (modifier = Modifier
+                    .fillMaxHeight()
+                    .width(200.dp)
+                ){
+                    Row (
+                        modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "DONOSTI",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .offset(x = (-10).dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "Descubre Donosti, la joya del País Vasco, conocida por su hermosa Bahía de la Concha",
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.W200,
+                            fontSize = 20.sp
+                        )
+                    }
+                }
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .width(200.dp)
+                ){
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Image(
+                            painter = donostiImage,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(180.dp)
+                                .height(150.dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        ElevatedButton(onClick = {}) {
+                            Text(
+                                text = "Viajar"
+                            )
+                        }
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            Row(modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .width(390.dp)
+                .height(240.dp))
+            {
+                Column (modifier = Modifier
+                    .fillMaxHeight()
+                    .width(200.dp)
+                ){
+                    Row (
+                        modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "ZUMARRAGA",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .offset(x = (-10).dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "Zumarraga, un rincón acogedor de Gipuzkoa, es conocido por su entorno natural.",
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.W200,
+                            fontSize = 18.sp
+                        )
+                    }
+                }
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .width(200.dp)
+                ){
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Image(
+                            painter = zumarragaImage,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(180.dp)
+                                .height(150.dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        ElevatedButton(onClick = {}) {
+                            Text(
+                                text = "Viajar"
+                            )
+                        }
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            Row(modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .width(390.dp)
+                .height(240.dp))
+            {
+                Column (modifier = Modifier
+                    .fillMaxHeight()
+                    .width(200.dp)
+                ){
+                    Row (
+                        modifier = Modifier
+                            .height(50.dp)
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "BILBAO",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .offset(x = (-10).dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Text(
+                            text = "Bilbao, ciudad moderna y cosmopolita, combina su esencia industrial con arte y arquitectura innovadora",
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.W200,
+                            fontSize = 17.sp
+                        )
+                    }
+                }
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .width(200.dp)
+                ){
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        Image(
+                            painter = bilbaoImage,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(180.dp)
+                                .height(150.dp)
+                        )
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ){
+                        ElevatedButton(onClick = {}) {
+                            Text(
+                                text = "Viajar"
+                            )
+                        }
+                    }
+                }
             }
         }
 
