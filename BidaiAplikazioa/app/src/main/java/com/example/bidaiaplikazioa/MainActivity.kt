@@ -552,6 +552,392 @@ fun Tolosa(modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun Donosti(modifier: Modifier = Modifier) {
+    Surface( // un fondo y estilo
+        modifier = modifier.fillMaxSize(), // ocupa todo
+        color = colorResource(id = R.color.white) // fondo blanco
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(vertical = 50.dp) // padding
+                .fillMaxSize(), // todo
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Kaixo Donostira!", // Titulo
+                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
+                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
+            )
+
+            // Columna 1
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp) // lo ancho d cada columna
+                    .padding(16.dp) // el espacio d dentro
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically, // lo centro
+                    modifier = Modifier.fillMaxWidth() // ocupa todo
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
+                        contentDescription = null, // no hay nada
+                        modifier = Modifier
+                            .size(80.dp) // tamañp de la foto
+                            .padding(end = 16.dp) // padding pa la derecha
+                    )
+                    Text(
+                        text = "Actividades",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp) // espacio pa arriba
+                            .height(40.dp) // anchura d arriba abajo del boton
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
+
+            // Columna 2
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Gastronomia",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Columna 3
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Hotel",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+        }
+    }
+}
+
+
+@Composable
+fun Zumarraga(modifier: Modifier = Modifier) {
+    Surface( // un fondo y estilo
+        modifier = modifier.fillMaxSize(), // ocupa todo
+        color = colorResource(id = R.color.white) // fondo blanco
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(vertical = 50.dp) // padding
+                .fillMaxSize(), // todo
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Kaixo Zumarragara!", // Titulo
+                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
+                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
+            )
+
+            // Columna 1
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp) // lo ancho d cada columna
+                    .padding(16.dp) // el espacio d dentro
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically, // lo centro
+                    modifier = Modifier.fillMaxWidth() // ocupa todo
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
+                        contentDescription = null, // no hay nada
+                        modifier = Modifier
+                            .size(80.dp) // tamañp de la foto
+                            .padding(end = 16.dp) // padding pa la derecha
+                    )
+                    Text(
+                        text = "Actividades",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp) // espacio pa arriba
+                            .height(40.dp) // anchura d arriba abajo del boton
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
+
+            // Columna 2
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Gastronomia",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Columna 3
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Hotel",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+        }
+    }
+}
+
+
+@Composable
+fun Bilbau(modifier: Modifier = Modifier) {
+    Surface( // un fondo y estilo
+        modifier = modifier.fillMaxSize(), // ocupa todo
+        color = colorResource(id = R.color.white) // fondo blanco
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(vertical = 50.dp) // padding
+                .fillMaxSize(), // todo
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Kaixo Bilbaura!", // Titulo
+                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
+                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
+            )
+
+            // Columna 1
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp) // lo ancho d cada columna
+                    .padding(16.dp) // el espacio d dentro
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically, // lo centro
+                    modifier = Modifier.fillMaxWidth() // ocupa todo
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
+                        contentDescription = null, // no hay nada
+                        modifier = Modifier
+                            .size(80.dp) // tamañp de la foto
+                            .padding(end = 16.dp) // padding pa la derecha
+                    )
+                    Text(
+                        text = "Actividades",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp) // espacio pa arriba
+                            .height(40.dp) // anchura d arriba abajo del boton
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
+
+            // Columna 2
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Gastronomia",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Columna 3
+            Column(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .width(350.dp)
+                    .padding(16.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(end = 16.dp)
+                    )
+                    Text(
+                        text = "Hotel",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Button(
+                        onClick = { /* ir a la otra pagina */ },
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .height(40.dp)
+                    ) {
+                        Text(text = "IR")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+        }
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
@@ -571,4 +957,26 @@ fun previewPantallaPrincipak() {
 @Composable
 fun previewTolosa(){
     Tolosa()
+}
+
+
+// para ver Donosti
+@Preview(showBackground = true)
+@Composable
+fun previewDonosti(){
+    Donosti()
+}
+
+// para ver Zumarraga
+@Preview(showBackground = true)
+@Composable
+fun previewZumarraga(){
+    Zumarraga()
+}
+
+// para ver Bilbau
+@Preview(showBackground = true)
+@Composable
+fun previewBilbau(){
+    Bilbau()
 }
