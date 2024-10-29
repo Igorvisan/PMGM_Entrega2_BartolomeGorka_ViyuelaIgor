@@ -97,7 +97,7 @@ fun pantallaIniciarSesion(
 }
 
 @Composable
-fun paginaPrincipal(modifier: Modifier = Modifier){
+fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> Unit) {
     val tolosaImage = painterResource(R.drawable.tolosa)
     val donostiImage = painterResource(R.drawable.san_sebastian_3)
     val zumarragaImage = painterResource(R.drawable.zumarraga)
@@ -179,10 +179,8 @@ fun paginaPrincipal(modifier: Modifier = Modifier){
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ){
-                        ElevatedButton(onClick = {}) {
-                            Text(
-                                text = "Viajar"
-                            )
+                        ElevatedButton(onClick = { onCitySelected("Tolosa") }) { // al hacer click se va a TOLOSA
+                            Text(text = "Viajar")
                         }
                     }
                 }
@@ -410,18 +408,22 @@ fun paginaPrincipal(modifier: Modifier = Modifier){
 }
 
 @Composable
-fun ShowApp(modifier: Modifier = Modifier){
+fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarAlPrincipio by remember { mutableStateOf(true) }
+    var ciudadSeleccionada by remember { mutableStateOf<String?>(null) }
 
-    Surface(modifier){
-        if(mostrarAlPrincipio){
-            pantallaIniciarSesion(onContinueClicked = {mostrarAlPrincipio = false})
-        }else{
-            paginaPrincipal()
+    Surface(modifier) {
+        when {
+            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+            ciudadSeleccionada != null -> {
+                when (ciudadSeleccionada) {
+                    "Tolosa" -> Tolosa()
+                }
+            }
+            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
         }
     }
 }
-
 @Composable
 fun Tolosa(modifier: Modifier = Modifier) {
     Surface( // un fondo y estilo
@@ -559,8 +561,9 @@ fun myAppPreviewr(){
 
 @Preview(showBackground = true)
 @Composable
-fun previewPantallaPrincipak(){
-    paginaPrincipal()
+fun previewPantallaPrincipak() {
+    paginaPrincipal(onCitySelected = { city ->
+    })
 }
 
 // para ver Tolosa
