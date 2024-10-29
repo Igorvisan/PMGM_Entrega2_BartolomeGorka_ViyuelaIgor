@@ -95,57 +95,52 @@ fun pantallaIniciarSesion(
         }
     }
 }
-
 @Composable
 fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> Unit) {
     val tolosaImage = painterResource(R.drawable.tolosa)
     val donostiImage = painterResource(R.drawable.san_sebastian_3)
     val zumarragaImage = painterResource(R.drawable.zumarraga)
     val bilbaoImage = painterResource(R.drawable.bilbao)
-    Surface (
-        modifier,
+
+    Surface(
+        modifier = modifier,
         color = colorResource(id = R.color.white)
-    ){
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(vertical = 100.dp)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
-        )
-        {
-            Row(modifier = Modifier
-                .background(color = colorResource(id = R.color.cream))
-                .width(390.dp)
-                .height(240.dp)
-            )
-            {
-                Column (modifier = Modifier
-                    .fillMaxHeight()
-                    .width(200.dp))
-                {
-                    Row (
+        ) {
+            // TOLOSA
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(390.dp)
+                    .height(240.dp)
+            ) {
+                Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
+                    Row(
                         modifier = Modifier
                             .height(50.dp)
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "TOLOSA",
                             fontSize = 20.sp,
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .offset(x = (-10).dp)
+                            modifier = Modifier.offset(x = (-10).dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
+                    Row(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "Tolosa, un destino lleno de historia y tradiciones vascas.",
                             textAlign = TextAlign.Center,
@@ -154,70 +149,59 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         )
                     }
                 }
-                Column (modifier = Modifier
-                    .fillMaxWidth()
-                    .width(200.dp)
-                )
-                {
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp),
+                Column(modifier = Modifier.fillMaxWidth().width(200.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().height(150.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Image(
                             painter = tolosaImage,
                             contentDescription = null,
-                            modifier = Modifier
-                                .width(180.dp)
-                                .height(150.dp)
+                            modifier = Modifier.width(180.dp).height(150.dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(),
+                    Row(
+                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
-                        ElevatedButton(onClick = { onCitySelected("Tolosa") }) { // al hacer click se va a TOLOSA
+                    ) {
+                        ElevatedButton(onClick = { onCitySelected("Tolosa") }) {
                             Text(text = "Viajar")
                         }
                     }
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
-            Row(modifier = Modifier
-                .background(color = colorResource(id = R.color.cream))
-                .width(390.dp)
-                .height(240.dp)
-            )
-            {
-                Column (modifier = Modifier
-                    .fillMaxHeight()
-                    .width(200.dp)
-                ){
-                    Row (
+
+            // DONOSTI
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(390.dp)
+                    .height(240.dp)
+            ) {
+                Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
+                    Row(
                         modifier = Modifier
                             .height(50.dp)
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "DONOSTI",
                             fontSize = 20.sp,
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .offset(x = (-10).dp)
+                            modifier = Modifier.offset(x = (-10).dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
+                    Row(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "Descubre Donosti, la joya del País Vasco, conocida por su hermosa Bahía de la Concha",
                             textAlign = TextAlign.Center,
@@ -226,70 +210,59 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         )
                     }
                 }
-                Column(modifier = Modifier
-                    .fillMaxWidth()
-                    .width(200.dp)
-                ){
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp),
+                Column(modifier = Modifier.fillMaxWidth().width(200.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().height(150.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Image(
                             painter = donostiImage,
                             contentDescription = null,
-                            modifier = Modifier
-                                .width(180.dp)
-                                .height(150.dp)
+                            modifier = Modifier.width(180.dp).height(150.dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(),
+                    Row(
+                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
-                        ElevatedButton(onClick = {}) {
-                            Text(
-                                text = "Viajar"
-                            )
+                    ) {
+                        ElevatedButton(onClick = { onCitySelected("Donosti") }) {
+                            Text(text = "Viajar")
                         }
                     }
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
-            Row(modifier = Modifier
-                .background(color = colorResource(id = R.color.cream))
-                .width(390.dp)
-                .height(240.dp))
-            {
-                Column (modifier = Modifier
-                    .fillMaxHeight()
-                    .width(200.dp)
-                ){
-                    Row (
+
+            // ZUMARRAGA
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(390.dp)
+                    .height(240.dp)
+            ) {
+                Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
+                    Row(
                         modifier = Modifier
                             .height(50.dp)
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "ZUMARRAGA",
                             fontSize = 20.sp,
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .offset(x = (-10).dp)
+                            modifier = Modifier.offset(x = (-10).dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
+                    Row(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "Zumarraga, un rincón acogedor de Gipuzkoa, es conocido por su entorno natural.",
                             textAlign = TextAlign.Center,
@@ -298,70 +271,59 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         )
                     }
                 }
-                Column(modifier = Modifier
-                    .fillMaxWidth()
-                    .width(200.dp)
-                ){
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp),
+                Column(modifier = Modifier.fillMaxWidth().width(200.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().height(150.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Image(
                             painter = zumarragaImage,
                             contentDescription = null,
-                            modifier = Modifier
-                                .width(180.dp)
-                                .height(150.dp)
+                            modifier = Modifier.width(180.dp).height(150.dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(),
+                    Row(
+                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
-                        ElevatedButton(onClick = {}) {
-                            Text(
-                                text = "Viajar"
-                            )
+                    ) {
+                        ElevatedButton(onClick = { onCitySelected("Zumarraga") }) {
+                            Text(text = "Viajar")
                         }
                     }
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
-            Row(modifier = Modifier
-                .background(color = colorResource(id = R.color.cream))
-                .width(390.dp)
-                .height(240.dp))
-            {
-                Column (modifier = Modifier
-                    .fillMaxHeight()
-                    .width(200.dp)
-                ){
-                    Row (
+
+            // BILBAO
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(390.dp)
+                    .height(240.dp)
+            ) {
+                Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
+                    Row(
                         modifier = Modifier
                             .height(50.dp)
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "BILBAO",
                             fontSize = 20.sp,
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .offset(x = (-10).dp)
+                            modifier = Modifier.offset(x = (-10).dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
+                    Row(
+                        modifier = Modifier.fillMaxHeight().fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Text(
                             text = "Bilbao, ciudad moderna y cosmopolita, combina su esencia industrial con arte y arquitectura innovadora",
                             textAlign = TextAlign.Center,
@@ -370,42 +332,34 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         )
                     }
                 }
-                Column(modifier = Modifier
-                    .fillMaxWidth()
-                    .width(200.dp)
-                ){
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp),
+                Column(modifier = Modifier.fillMaxWidth().width(200.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().height(150.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         Image(
                             painter = bilbaoImage,
                             contentDescription = null,
-                            modifier = Modifier
-                                .width(180.dp)
-                                .height(150.dp)
+                            modifier = Modifier.width(180.dp).height(150.dp)
                         )
                     }
-                    Row(modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(),
+                    Row(
+                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
-                    ){
-                        ElevatedButton(onClick = {}) {
-                            Text(
-                                text = "Viajar"
-                            )
+                    ) {
+                        ElevatedButton(onClick = { onCitySelected("Bilbao") }) {
+                            Text(text = "Viajar")
                         }
                     }
                 }
             }
         }
-
     }
 }
+
+
 
 @Composable
 fun ShowApp(modifier: Modifier = Modifier) {
@@ -418,6 +372,36 @@ fun ShowApp(modifier: Modifier = Modifier) {
             ciudadSeleccionada != null -> {
                 when (ciudadSeleccionada) {
                     "Tolosa" -> Tolosa()
+                }
+            }
+            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
+        }
+
+        when {
+            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+            ciudadSeleccionada != null -> {
+                when (ciudadSeleccionada) {
+                    "Donosti" -> Donosti()
+                }
+            }
+            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
+        }
+
+        when {
+            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+            ciudadSeleccionada != null -> {
+                when (ciudadSeleccionada) {
+                    "Zumarraga" -> Zumarraga()
+                }
+            }
+            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
+        }
+
+        when {
+            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+            ciudadSeleccionada != null -> {
+                when (ciudadSeleccionada) {
+                    "Bilbao" -> Bilbau()
                 }
             }
             else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
