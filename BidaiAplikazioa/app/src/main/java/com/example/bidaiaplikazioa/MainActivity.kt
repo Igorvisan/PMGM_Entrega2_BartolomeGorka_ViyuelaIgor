@@ -95,6 +95,7 @@ fun pantallaIniciarSesion(
         }
     }
 }
+
 @Composable
 fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> Unit) {
     val tolosaImage = painterResource(R.drawable.tolosa)
@@ -408,6 +409,8 @@ fun ShowApp(modifier: Modifier = Modifier) {
         }
     }
 }
+
+
 @Composable
 fun Tolosa(modifier: Modifier = Modifier) {
     Surface( // un fondo y estilo
@@ -420,6 +423,17 @@ fun Tolosa(modifier: Modifier = Modifier) {
                 .fillMaxSize(), // todo
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            Button(
+                onClick = { /* ir a la otra pagina */ },
+                modifier = Modifier
+                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
+                    .height(40.dp) // anchura d arriba abajo del boton
+                    .align(alignment= Alignment.Start) // lo d a q este full izq
+                //.padding(end = 80.dp) // espacio pa arriba
+            ) {
+                Text(text = "ATRAS")
+            }
             Text(
                 text = "Kaixo Tolosara!", // Titulo
                 style = MaterialTheme.typography.headlineLarge,// pa q sea grande
@@ -548,6 +562,17 @@ fun Donosti(modifier: Modifier = Modifier) {
                 .fillMaxSize(), // todo
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            Button(
+                onClick = { /* ir a la otra pagina */ },
+                modifier = Modifier
+                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
+                    .height(40.dp) // anchura d arriba abajo del boton
+                    .align(alignment= Alignment.Start) // lo d a q este full izq
+                //.padding(end = 80.dp) // espacio pa arriba
+            ) {
+                Text(text = "ATRAS")
+            }
             Text(
                 text = "Kaixo Donostira!", // Titulo
                 style = MaterialTheme.typography.headlineLarge,// pa q sea grande
@@ -676,7 +701,20 @@ fun Zumarraga(modifier: Modifier = Modifier) {
                 .padding(vertical = 50.dp) // padding
                 .fillMaxSize(), // todo
             horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+        )
+        {
+            Button(
+                onClick = { /* ir a la otra pagina */ },
+                modifier = Modifier
+                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
+                    .height(40.dp) // anchura d arriba abajo del boton
+                    .align(alignment= Alignment.Start) // lo d a q este full izq
+                //.padding(end = 80.dp) // espacio pa arriba
+            ) {
+                Text(text = "ATRAS")
+            }
+            
+
             Text(
                 text = "Kaixo Zumarragara!", // Titulo
                 style = MaterialTheme.typography.headlineLarge,// pa q sea grande
@@ -801,11 +839,22 @@ fun Bilbau(modifier: Modifier = Modifier) {
         color = colorResource(id = R.color.white) // fondo blanco
     ) {
         Column(
+
             modifier = Modifier
                 .padding(vertical = 50.dp) // padding
                 .fillMaxSize(), // todo
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Button(
+                onClick = { /* ir a la otra pagina */ },
+                modifier = Modifier
+                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
+                    .height(40.dp) // anchura d arriba abajo del boton
+                    .align(alignment= Alignment.Start) // lo d a q este full izq
+                    //.padding(end = 80.dp) // espacio pa arriba
+            ) {
+                Text(text = "ATRAS")
+            }
             Text(
                 text = "Kaixo Bilbaura!", // Titulo
                 style = MaterialTheme.typography.headlineLarge,// pa q sea grande
