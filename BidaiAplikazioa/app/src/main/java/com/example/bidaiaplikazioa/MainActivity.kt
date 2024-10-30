@@ -97,7 +97,7 @@ fun pantallaIniciarSesion(
 }
 
 @Composable
-fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> Unit) {
+fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (String) -> Unit) {
     val tolosaImage = painterResource(R.drawable.tolosa)
     val donostiImage = painterResource(R.drawable.san_sebastian_3)
     val zumarragaImage = painterResource(R.drawable.zumarraga)
@@ -114,6 +114,8 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+
             // TOLOSA
             Row(
                 modifier = Modifier
@@ -167,7 +169,7 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { onCitySelected("Tolosa") }) {
+                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Tolosa") }) {
                             Text(text = "Viajar")
                         }
                     }
@@ -228,7 +230,7 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { onCitySelected("Donosti") }) {
+                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Donosti") }) {
                             Text(text = "Viajar")
                         }
                     }
@@ -289,7 +291,7 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { onCitySelected("Zumarraga") }) {
+                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Zumarraga") }) {
                             Text(text = "Viajar")
                         }
                     }
@@ -350,7 +352,7 @@ fun paginaPrincipal(modifier: Modifier = Modifier, onCitySelected: (String) -> U
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { onCitySelected("Bilbao") }) {
+                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Bilbao") }) {
                             Text(text = "Viajar")
                         }
                     }
@@ -367,52 +369,26 @@ fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarAlPrincipio by remember { mutableStateOf(true) }
     var ciudadSeleccionada by remember { mutableStateOf<String?>(null) }
 
-    Surface(modifier) {
-        when {
-            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
-            ciudadSeleccionada != null -> {
-                when (ciudadSeleccionada) {
-                    "Tolosa" -> Tolosa()
-                }
-            }
-            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
-        }
 
-        when {
-            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
-            ciudadSeleccionada != null -> {
-                when (ciudadSeleccionada) {
-                    "Donosti" -> Donosti()
+        Surface(modifier) { // resumido d lo d antes
+            when {
+                mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+                ciudadSeleccionada != null -> {
+                    when (ciudadSeleccionada) {
+                        "Tolosa" -> Tolosa(botonDeAtras = { ciudadSeleccionada = null })
+                        "Donosti" -> Donosti(botonDeAtras = { ciudadSeleccionada = null })
+                        "Zumarraga" -> Zumarraga(botonDeAtras = { ciudadSeleccionada = null })
+                        "Bilbao" -> Bilbau(botonDeAtras = { ciudadSeleccionada = null })
+                    }
                 }
+                else -> paginaPrincipal(botonDeSelecionarCiudad = { ciudadSeleccionada = it }) // f
             }
-            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
-        }
-
-        when {
-            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
-            ciudadSeleccionada != null -> {
-                when (ciudadSeleccionada) {
-                    "Zumarraga" -> Zumarraga()
-                }
-            }
-            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
-        }
-
-        when {
-            mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
-            ciudadSeleccionada != null -> {
-                when (ciudadSeleccionada) {
-                    "Bilbao" -> Bilbau()
-                }
-            }
-            else -> paginaPrincipal(onCitySelected = { ciudadSeleccionada = it })
         }
     }
-}
 
 
 @Composable
-fun Tolosa(modifier: Modifier = Modifier) {
+fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
     Surface( // un fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo
         color = colorResource(id = R.color.white) // fondo blanco
@@ -425,7 +401,7 @@ fun Tolosa(modifier: Modifier = Modifier) {
         ) {
 
             Button(
-                onClick = { /* ir a la otra pagina */ },
+                onClick = botonDeAtras,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
                     .height(40.dp) // anchura d arriba abajo del boton
@@ -551,7 +527,7 @@ fun Tolosa(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Donosti(modifier: Modifier = Modifier) {
+fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
     Surface( // un fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo
         color = colorResource(id = R.color.white) // fondo blanco
@@ -564,7 +540,7 @@ fun Donosti(modifier: Modifier = Modifier) {
         ) {
 
             Button(
-                onClick = { /* ir a la otra pagina */ },
+                onClick = botonDeAtras,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
                     .height(40.dp) // anchura d arriba abajo del boton
@@ -691,7 +667,7 @@ fun Donosti(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun Zumarraga(modifier: Modifier = Modifier) {
+fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
     Surface( // un fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo
         color = colorResource(id = R.color.white) // fondo blanco
@@ -704,7 +680,7 @@ fun Zumarraga(modifier: Modifier = Modifier) {
         )
         {
             Button(
-                onClick = { /* ir a la otra pagina */ },
+                onClick = botonDeAtras,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
                     .height(40.dp) // anchura d arriba abajo del boton
@@ -833,7 +809,7 @@ fun Zumarraga(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun Bilbau(modifier: Modifier = Modifier) {
+fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
     Surface( // un fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo
         color = colorResource(id = R.color.white) // fondo blanco
@@ -846,7 +822,7 @@ fun Bilbau(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { /* ir a la otra pagina */ },
+                onClick = botonDeAtras,
                 modifier = Modifier
                     .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
                     .height(40.dp) // anchura d arriba abajo del boton
@@ -981,15 +957,15 @@ fun myAppPreviewr(){
 @Preview(showBackground = true)
 @Composable
 fun previewPantallaPrincipak() {
-    paginaPrincipal(onCitySelected = { city ->
+    paginaPrincipal(botonDeSelecionarCiudad = { city ->
     })
 }
 
-// para ver Tolosa
+// Para ver tolosa
 @Preview(showBackground = true)
 @Composable
-fun previewTolosa(){
-    Tolosa()
+fun previewTolosa() {
+    Tolosa(botonDeAtras = { /* NO TOCAR */ })
 }
 
 
@@ -997,19 +973,19 @@ fun previewTolosa(){
 @Preview(showBackground = true)
 @Composable
 fun previewDonosti(){
-    Donosti()
+    Donosti(botonDeAtras = { /* NO TOCAR */ })
 }
 
 // para ver Zumarraga
 @Preview(showBackground = true)
 @Composable
 fun previewZumarraga(){
-    Zumarraga()
+    Zumarraga(botonDeAtras = { /* NO TOCAR */ })
 }
 
 // para ver Bilbau
 @Preview(showBackground = true)
 @Composable
 fun previewBilbau(){
-    Bilbau()
+    Bilbau(botonDeAtras = { /* NO TOCAR */ })
 }
