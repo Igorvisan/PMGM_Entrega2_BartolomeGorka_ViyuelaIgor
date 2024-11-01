@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,9 +23,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -35,10 +44,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -110,17 +123,16 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(vertical = 100.dp)
-                .verticalScroll(rememberScrollState()),
+                .verticalScroll(rememberScrollState())
+                .clip(shape = RoundedCornerShape(20.dp)),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
-
+            Spacer(modifier = Modifier.height(100.dp))
             // TOLOSA
             Row(
                 modifier = Modifier
                     .background(color = colorResource(id = R.color.cream))
-                    .width(390.dp)
+                    .width(360.dp)
                     .height(240.dp)
             ) {
                 Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
@@ -175,16 +187,19 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
             // DONOSTI
             Row(
                 modifier = Modifier
                     .background(color = colorResource(id = R.color.cream))
-                    .width(390.dp)
+                    .width(360.dp)
                     .height(240.dp)
             ) {
-                Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
+                Column(modifier = Modifier
+                    .fillMaxHeight()
+                    .width(200.dp)
+                ) {
                     Row(
                         modifier = Modifier
                             .height(50.dp)
@@ -236,13 +251,13 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
             // ZUMARRAGA
             Row(
                 modifier = Modifier
                     .background(color = colorResource(id = R.color.cream))
-                    .width(390.dp)
+                    .width(360.dp)
                     .height(240.dp)
             ) {
                 Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
@@ -297,13 +312,13 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
             // BILBAO
             Row(
                 modifier = Modifier
                     .background(color = colorResource(id = R.color.cream))
-                    .width(390.dp)
+                    .width(360.dp)
                     .height(240.dp)
             ) {
                 Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {
@@ -368,14 +383,19 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
 fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarAlPrincipio by remember { mutableStateOf(true) }
     var ciudadSeleccionada by remember { mutableStateOf<String?>(null) }
+    var mostrarActividades by remember { mutableStateOf(false) }
 
 
         Surface(modifier) { // resumido d lo d antes
             when {
                 mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
+                mostrarActividades -> actividadesTolosa()
                 ciudadSeleccionada != null -> {
                     when (ciudadSeleccionada) {
-                        "Tolosa" -> Tolosa(botonDeAtras = { ciudadSeleccionada = null })
+                        "Tolosa" -> Tolosa(
+                            botonDeAtras = { ciudadSeleccionada = null },
+                            botonActividades = {mostrarActividades = true}
+                        )
                         "Donosti" -> Donosti(botonDeAtras = { ciudadSeleccionada = null })
                         "Zumarraga" -> Zumarraga(botonDeAtras = { ciudadSeleccionada = null })
                         "Bilbao" -> Bilbau(botonDeAtras = { ciudadSeleccionada = null })
@@ -388,7 +408,7 @@ fun ShowApp(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
+fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit, botonActividades: () -> Unit) {
     Surface( // un fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo
         color = colorResource(id = R.color.white) // fondo blanco
@@ -440,7 +460,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = botonActividades,
                         modifier = Modifier
                             .padding(top = 8.dp) // espacio pa arriba
                             .height(40.dp) // anchura d arriba abajo del boton
@@ -941,8 +961,101 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
+        }
+    }
+}
 
+@Composable
+fun actividadesTolosa(modifier: Modifier = Modifier){
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    )
+    {
+        Column(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxHeight()
+                .fillMaxWidth()
+        )
+        {
+            Row(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .fillMaxWidth() // Asegúrate de que llene el ancho del contenedor
+                .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ){
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .background(color = colorResource(R.color.cream))
+                        .width(80.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
 
+                )
+                {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier
+                            .size(27.dp)
+                    )
+                }
+                Spacer(modifier.width(60.dp))
+                Text(
+                    text = "Actividades Tolosa",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card (
+                    modifier = Modifier
+                        .width(240.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )
+                )
+                {
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ){
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.cascoantiguo)
+                        )
+                        Text(
+                            text = "Casco Viejo",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Pasea por las estrechas calles medievales, observa las casas señoriales y " +
+                                    "la arquitectura histórica como la Casa Consistorial y las plazas Triángulo y Euskal Herria.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
+                            color = Color.Gray
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -965,7 +1078,7 @@ fun previewPantallaPrincipak() {
 @Preview(showBackground = true)
 @Composable
 fun previewTolosa() {
-    Tolosa(botonDeAtras = { /* NO TOCAR */ })
+    Tolosa(botonDeAtras = { /* NO TOCAR */ }, botonActividades = {})
 }
 
 
@@ -988,4 +1101,10 @@ fun previewZumarraga(){
 @Composable
 fun previewBilbau(){
     Bilbau(botonDeAtras = { /* NO TOCAR */ })
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewActividades(){
+    actividadesTolosa()
 }
