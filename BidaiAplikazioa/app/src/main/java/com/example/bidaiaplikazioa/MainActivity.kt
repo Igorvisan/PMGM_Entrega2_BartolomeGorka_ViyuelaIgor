@@ -86,14 +86,14 @@ fun pantallaIniciarSesion(
             horizontalAlignment = Alignment.CenterHorizontally,
         ){
             Text(
-                "Welcome to our booking application!"
+                "Bienvenido a nuestra aplicación de reservas!"
             )
             OutlinedTextField(
                 value = text,
                 onValueChange = {text = it}, //onValueChange = { text = it }: Cada vez que el usuario escriba algo,
                 // el contenido del campo de texto cambiará y actualizará el valor de text
-                label = { Text("Name") },
-                placeholder = {Text("Enter Name")},
+                label = { Text("Nombre") },
+                placeholder = {Text("Pon tu nombre")},
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier.padding(vertical = 18.dp),
             )
@@ -102,7 +102,7 @@ fun pantallaIniciarSesion(
                 modifier.padding(vertical = 24.dp),
                 colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
             ) {
-                Text("Enter")
+                Text("Entrar")
             }
         }
     }
@@ -472,7 +472,6 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
             // Columna 1
             Column(
             modifier = Modifier
-                .padding(start = 16.dp) // margen a la izquierda
                 .background(color = colorResource(id = R.color.cream)) // color d la columna
                 .width(350.dp) // lo ancho d cada columna
                 .padding(16.dp) // el espacio d dentroç
@@ -510,7 +509,6 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
             // Columna 2
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -546,7 +544,6 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
             // Columna 3
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -643,7 +640,6 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             // Columna 1
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp) // lo ancho d cada columna
                     .padding(16.dp) // el espacio d dentro
@@ -679,7 +675,6 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             // Columna 2
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -715,7 +710,6 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             // Columna 3
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -1122,7 +1116,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 Spacer(modifier.width(60.dp))
                 Text(
                     text = "Actividades Tolosa",
-                    fontSize = 16.sp,
+                    fontSize = 26.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -1302,7 +1296,7 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 Spacer(modifier.width(60.dp))
                 Text(
                     text = "Gastronomia Tolosa",
-                    fontSize = 16.sp,
+                    fontSize = 26.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -1471,7 +1465,7 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 Spacer(modifier.width(60.dp))
                 Text(
                     text = "Hoteles Tolosa",
-                    fontSize = 16.sp,
+                    fontSize = 26.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
