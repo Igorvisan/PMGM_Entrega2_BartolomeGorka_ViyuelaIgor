@@ -426,7 +426,8 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                 .background(color = colorResource(id = R.color.white))
                 .fillMaxHeight()
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
         )
         {
             Row(
@@ -595,7 +596,8 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                 .background(color = colorResource(id = R.color.white))
                 .fillMaxHeight()
                 .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
         )
         {
             Row(
@@ -763,7 +765,6 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            // Fila personalizada con el botón de retroceso y el título
             Row(
                 modifier = Modifier
                     .background(color = colorResource(id = R.color.cream))
@@ -799,7 +800,7 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             }
 
             // Espaciador inferior
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(60.dp))
 
             // Columna 1
             Column(
@@ -960,7 +961,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             }
 
             // Espaciador inferior
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(60.dp))
 
             // Columna 1
             Column(
