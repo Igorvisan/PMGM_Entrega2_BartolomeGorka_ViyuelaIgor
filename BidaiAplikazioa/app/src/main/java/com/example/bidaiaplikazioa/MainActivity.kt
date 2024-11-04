@@ -414,43 +414,71 @@ fun ShowApp(modifier: Modifier = Modifier) {
 fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
            botonActividades: () -> Unit, irGastronomia: () -> Unit,
            irHoteles: () -> Unit) {
-    Surface( // un fondo y estilo
-        modifier = modifier.fillMaxSize(), // ocupa todo
-        color = colorResource(id = R.color.white) // fondo blanco
-    ) {
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    )
+    {
         Column(
             modifier = Modifier
-                .padding(vertical = 50.dp) // padding
-                .fillMaxSize(), // todo
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-            Button(
-                onClick = botonDeAtras,
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        )
+        {
+            Row(
                 modifier = Modifier
-                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
-                    .height(40.dp) // anchura d arriba abajo del boton
-                    .align(alignment= Alignment.Start) // lo d a q este full izq
-                //.padding(end = 80.dp) // espacio pa arriba
-            ) {
-                Text(text = "ATRAS")
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth() // Asegúrate de que llene el ancho del contenedor
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ){
+                Column(
+                    modifier = Modifier
+
+                        .fillMaxHeight()
+                        .background(color = colorResource(R.color.cream))
+                        .width(80.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+
+                )
+                {
+                    IconButton(
+                        onClick = botonDeAtras
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            modifier = Modifier
+                                .size(27.dp)
+                        )
+                    }
+                }
+                Spacer(modifier.width(60.dp))
+                Text(
+                    text = "TOLOSA",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
-            Text(
-                text = "Kaixo Tolosara!", // Titulo
-                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
-                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
-            )
+            Spacer(modifier.height(60.dp)) // entre tolosa y lo d abajo
 
             // Columna 1
             Column(
-                modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
-                    .width(350.dp) // lo ancho d cada columna
-                    .padding(16.dp) // el espacio d dentro
+            modifier = Modifier
+                .padding(start = 16.dp) // margen a la izquierda
+                .background(color = colorResource(id = R.color.cream)) // color d la columna
+                .width(350.dp) // lo ancho d cada columna
+                .padding(16.dp) // el espacio d dentroç
+                .fillMaxSize(), // todo
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically, // lo centro
+                   verticalAlignment = Alignment.CenterVertically, // lo centro
                     modifier = Modifier.fillMaxWidth() // ocupa todo
+
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
@@ -479,6 +507,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
             // Columna 2
             Column(
                 modifier = Modifier
+                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -514,6 +543,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
             // Columna 3
             Column(
                 modifier = Modifier
+                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -553,36 +583,63 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
 
 @Composable
 fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
-    Surface( // un fondo y estilo
-        modifier = modifier.fillMaxSize(), // ocupa todo
-        color = colorResource(id = R.color.white) // fondo blanco
-    ) {
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    )
+    {
         Column(
             modifier = Modifier
-                .padding(vertical = 50.dp) // padding
-                .fillMaxSize(), // todo
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-            Button(
-                onClick = botonDeAtras,
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        )
+        {
+            Row(
                 modifier = Modifier
-                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
-                    .height(40.dp) // anchura d arriba abajo del boton
-                    .align(alignment= Alignment.Start) // lo d a q este full izq
-                //.padding(end = 80.dp) // espacio pa arriba
-            ) {
-                Text(text = "ATRAS")
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth() // Asegúrate de que llene el ancho del contenedor
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ){
+                Column(
+                    modifier = Modifier
+
+                        .fillMaxHeight()
+                        .background(color = colorResource(R.color.cream))
+                        .width(80.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+
+                )
+                {
+                    IconButton(
+                        onClick = botonDeAtras
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            modifier = Modifier
+                                .size(27.dp)
+                        )
+                    }
+                }
+                Spacer(modifier.width(60.dp))
+                Text(
+                    text = "DONOSTI",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
-            Text(
-                text = "Kaixo Donostira!", // Titulo
-                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
-                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
-            )
+            Spacer(modifier.height(60.dp)) // entre tolosa y lo d abajo
+
 
             // Columna 1
             Column(
                 modifier = Modifier
+                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp) // lo ancho d cada columna
                     .padding(16.dp) // el espacio d dentro
@@ -618,6 +675,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             // Columna 2
             Column(
                 modifier = Modifier
+                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
@@ -653,6 +711,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
             // Columna 3
             Column(
                 modifier = Modifier
+                    .padding(start = 16.dp) // margen a la izquierda
                     .background(color = colorResource(id = R.color.cream)) // color d la columna
                     .width(350.dp)
                     .padding(16.dp)
