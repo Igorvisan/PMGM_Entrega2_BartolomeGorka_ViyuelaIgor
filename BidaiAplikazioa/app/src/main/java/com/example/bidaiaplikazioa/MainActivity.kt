@@ -43,7 +43,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -752,74 +754,93 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
 
 @Composable
 fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
-    Surface( // un fondo y estilo
-        modifier = modifier.fillMaxSize(), // ocupa todo
+    Surface( // fondo y estilo
+        modifier = modifier.fillMaxSize(), // ocupa todo el espacio
         color = colorResource(id = R.color.white) // fondo blanco
     ) {
         Column(
-            modifier = Modifier
-                .padding(vertical = 50.dp) // padding
-                .fillMaxSize(), // todo
-            horizontalAlignment = Alignment.CenterHorizontally
-        )
-        {
-            Button(
-                onClick = botonDeAtras,
-                modifier = Modifier
-                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
-                    .height(40.dp) // anchura d arriba abajo del boton
-                    .align(alignment= Alignment.Start) // lo d a q este full izq
-                //.padding(end = 80.dp) // espacio pa arriba
-            ) {
-                Text(text = "ATRAS")
-            }
-            
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
 
-            Text(
-                text = "Kaixo Zumarragara!", // Titulo
-                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
-                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
-            )
+            // Fila personalizada con el botón de retroceso y el título
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth() // Asegura que llene el ancho
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .background(color = colorResource(id = R.color.cream))
+                        .width(80.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    IconButton(
+                        onClick = botonDeAtras // Accion al hacer clic
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            modifier = Modifier.size(27.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(60.dp))
+                Text(
+                    text = "ZUMARRAGA",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            // Espaciador inferior
+            Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 1
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
-                    .width(350.dp) // lo ancho d cada columna
-                    .padding(16.dp) // el espacio d dentro
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(350.dp)
+                    .padding(16.dp)
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically, // lo centro
-                    modifier = Modifier.fillMaxWidth() // ocupa todo
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
-                        contentDescription = null, // no hay nada
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
                         modifier = Modifier
-                            .size(80.dp) // tamañp de la foto
-                            .padding(end = 16.dp) // padding pa la derecha
+                            .size(80.dp)
+                            .padding(end = 16.dp)
                     )
                     Text(
                         text = "Actividades",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
-                            .padding(top = 8.dp) // espacio pa arriba
-                            .height(40.dp) // anchura d arriba abajo del boton
+                            .padding(top = 8.dp)
+                            .height(40.dp)
                     ) {
                         Text(text = "IR")
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
+
+            Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 2
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .background(color = colorResource(id = R.color.cream))
                     .width(350.dp)
                     .padding(16.dp)
             ) {
@@ -838,9 +859,9 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         text = "Gastronomia",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -849,12 +870,13 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     }
                 }
             }
+
             Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 3
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .background(color = colorResource(id = R.color.cream))
                     .width(350.dp)
                     .padding(16.dp)
             ) {
@@ -873,9 +895,9 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         text = "Hotel",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -884,9 +906,8 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     }
                 }
             }
+
             Spacer(modifier = Modifier.height(20.dp))
-
-
         }
     }
 }
@@ -894,72 +915,93 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
 
 @Composable
 fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
-    Surface( // un fondo y estilo
-        modifier = modifier.fillMaxSize(), // ocupa todo
+    Surface( // fondo y estilo
+        modifier = modifier.fillMaxSize(), // ocupa todo el espacio
         color = colorResource(id = R.color.white) // fondo blanco
     ) {
         Column(
-
-            modifier = Modifier
-                .padding(vertical = 50.dp) // padding
-                .fillMaxSize(), // todo
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(
-                onClick = botonDeAtras,
+
+            // Fila personalizada con el botón de retroceso y el título
+            Row(
                 modifier = Modifier
-                    .padding(top = 8.dp, start = 7.dp) // espacio pa arriba
-                    .height(40.dp) // anchura d arriba abajo del boton
-                    .align(alignment= Alignment.Start) // lo d a q este full izq
-                    //.padding(end = 80.dp) // espacio pa arriba
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth() // Asegura que llene el ancho
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
             ) {
-                Text(text = "ATRAS")
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .background(color = colorResource(id = R.color.cream))
+                        .width(80.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    IconButton(
+                        onClick = botonDeAtras // Accion al hacer clic
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            modifier = Modifier.size(27.dp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(60.dp))
+                Text(
+                    text = "BILBAO",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
-            Text(
-                text = "Kaixo Bilbaura!", // Titulo
-                style = MaterialTheme.typography.headlineLarge,// pa q sea grande
-                modifier = Modifier.padding(bottom = 20.dp) // pa abajo espacio
-            )
+
+            // Espaciador inferior
+            Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 1
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
-                    .width(350.dp) // lo ancho d cada columna
-                    .padding(16.dp) // el espacio d dentro
+                    .background(color = colorResource(id = R.color.cream))
+                    .width(350.dp)
+                    .padding(16.dp)
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically, // lo centro
-                    modifier = Modifier.fillMaxWidth() // ocupa todo
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
-                        contentDescription = null, // no hay nada
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null,
                         modifier = Modifier
-                            .size(80.dp) // tamañp de la foto
-                            .padding(end = 16.dp) // padding pa la derecha
+                            .size(80.dp)
+                            .padding(end = 16.dp)
                     )
                     Text(
                         text = "Actividades",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
-                            .padding(top = 8.dp) // espacio pa arriba
-                            .height(40.dp) // anchura d arriba abajo del boton
+                            .padding(top = 8.dp)
+                            .height(40.dp)
                     ) {
                         Text(text = "IR")
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
+
+            Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 2
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .background(color = colorResource(id = R.color.cream))
                     .width(350.dp)
                     .padding(16.dp)
             ) {
@@ -978,9 +1020,9 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         text = "Gastronomia",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -989,12 +1031,13 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     }
                 }
             }
+
             Spacer(modifier = Modifier.height(20.dp))
 
             // Columna 3
             Column(
                 modifier = Modifier
-                    .background(color = colorResource(id = R.color.cream)) // color d la columna
+                    .background(color = colorResource(id = R.color.cream))
                     .width(350.dp)
                     .padding(16.dp)
             ) {
@@ -1013,9 +1056,9 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         text = "Hotel",
                         style = MaterialTheme.typography.bodyLarge
                     )
-                    Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
+                    Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -1024,10 +1067,12 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     }
                 }
             }
+
             Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
+
 
 @Composable
 fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
@@ -1090,7 +1135,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card (
                     modifier = Modifier
-                        .width(240.dp)
+                        .width(270.dp)
                         .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
                     colors = CardDefaults.cardColors(
@@ -1136,7 +1181,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .width(240.dp)
+                        .width(270.dp)
                         .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
                     colors = CardDefaults.cardColors(
@@ -1180,7 +1225,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 Card(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(240.dp)
+                        .width(270.dp)
                         .background(color = Color.White),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
                     colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
