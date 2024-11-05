@@ -55,7 +55,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bidaiaplikazioa.ui.theme.BidaiAplikazioaTheme
-
+import com.example.bidaiaplikazioa.uiElements.confirmarReserva
 
 
 class MainActivity : ComponentActivity() {
@@ -1085,6 +1085,15 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
 
 @Composable
 fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
     Surface(
         modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.white)
@@ -1130,7 +1139,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1168,6 +1177,21 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(90.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1176,7 +1200,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1219,7 +1243,7 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1635,7 +1659,7 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1673,6 +1697,16 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(90.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {}
+                            ) { }
+                        }
                     }
                 }
             }
