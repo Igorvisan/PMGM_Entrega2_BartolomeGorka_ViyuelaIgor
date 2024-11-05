@@ -4,6 +4,7 @@ import android.provider.CalendarContract.Colors
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -49,7 +51,8 @@ fun confirmarReserva(
                     contentDescription = "Reserva",
                     modifier = Modifier.size(27.dp)
                 )
-                Text(text = "Esta ha sido tu reserva",
+                Spacer(modifier = Modifier.width(20.dp))
+                Text(text = "Tu reserva ha sido confirmada",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold                )
             }
@@ -62,17 +65,11 @@ fun confirmarReserva(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Button(
-                    onClick = {},
-                    modifier = Modifier
-                        .width(180.dp)
-                        .padding(10.dp),
-                    colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black))
-                ) {
-                    Text(
-                        text = "Aceptar",
-                    )
-                }
+                Icon(
+                    imageVector = Icons.Default.CheckCircle,
+                    contentDescription = "Confirmado",
+                    modifier = Modifier.size(80.dp)
+                )
             }
         }
     )

@@ -1236,6 +1236,21 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1277,6 +1292,21 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             color = Color.Gray,
                             modifier = Modifier.padding(6.dp)
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1287,6 +1317,13 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
 
 @Composable
 fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
     Surface(
         modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.white)
@@ -1362,13 +1399,28 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(430.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1401,13 +1453,28 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1441,6 +1508,21 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1451,6 +1533,14 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
 
 @Composable
 fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
     Surface(
         modifier = Modifier
             .fillMaxSize(),
@@ -1492,7 +1582,7 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(380.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1525,6 +1615,21 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1564,6 +1669,21 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1603,6 +1723,21 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1614,6 +1749,15 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
 
 @Composable
 fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
     Surface(
         modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.white)
@@ -1700,12 +1844,17 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(90.dp),
+                                .height(130.dp),
                             contentAlignment = Alignment.Center
                         ){
                             Button(
-                                onClick = {}
-                            ) { }
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
                         }
                     }
                 }
@@ -1715,7 +1864,7 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1751,6 +1900,21 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1758,7 +1922,7 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(350.dp)
+                    .height(400.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -1792,6 +1956,21 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             color = Color.Gray,
                             modifier = Modifier.padding(6.dp)
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1802,6 +1981,15 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
 
 @Composable
 fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
     Surface(
         modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.white)
@@ -1843,7 +2031,7 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(380.dp)
+                    .height(430.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1877,13 +2065,28 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1916,13 +2119,28 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -1956,6 +2174,21 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -1966,6 +2199,13 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
 
 @Composable
 fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
     Surface(
         modifier = Modifier
             .fillMaxSize(),
@@ -2007,7 +2247,7 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(380.dp)
+                    .height(430.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -2040,13 +2280,28 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -2079,13 +2334,28 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(350.dp)
+                    .height(400.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -2118,6 +2388,21 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
                     }
                 }
             }
