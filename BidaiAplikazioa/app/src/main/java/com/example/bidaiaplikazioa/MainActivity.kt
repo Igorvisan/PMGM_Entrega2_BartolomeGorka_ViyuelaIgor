@@ -386,13 +386,20 @@ fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarGastronomia by remember { mutableStateOf(false) }
     var mostrarHoteles by remember { mutableStateOf(false) }
 
-
+    var mostrarActividades2 by remember { mutableStateOf(false) }
+    var mostrarGastronomia2 by remember { mutableStateOf(false) }
+    var mostrarHoteles2 by remember { mutableStateOf(false) }
         Surface(modifier) { // resumido d lo d antes
             when {
                 mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
                 mostrarActividades -> actividadesTolosa(irAtras = {mostrarActividades = false})
                 mostrarGastronomia -> gastronomiaTolosa(irAtras = {mostrarGastronomia = false})
                 mostrarHoteles -> hotelesTolosa(irAtras = {mostrarHoteles = false})
+
+                mostrarActividades2 -> actividadesDonosti(irAtras = {mostrarActividades2 = false})
+                mostrarGastronomia2 -> gastronomiaDonosti(irAtras = {mostrarGastronomia2 = false})
+                mostrarHoteles2 -> hotelesDonosti(irAtras = {mostrarHoteles2 = false})
+
                 ciudadSeleccionada != null -> {
                     when (ciudadSeleccionada) {
                         "Tolosa" -> Tolosa(
@@ -401,7 +408,12 @@ fun ShowApp(modifier: Modifier = Modifier) {
                             irGastronomia = {mostrarGastronomia = true},
                             irHoteles = { mostrarHoteles = true}
                         )
-                        "Donosti" -> Donosti(botonDeAtras = { ciudadSeleccionada = null })
+                        "Donosti" -> Donosti(
+                            botonDeAtras = { ciudadSeleccionada = null },
+                            botonActividades2 = {mostrarActividades2 = true},
+                            irGastronomia2 = {mostrarGastronomia2 = true},
+                            irHoteles2 = { mostrarHoteles2 = true}
+                        )
                         "Zumarraga" -> Zumarraga(botonDeAtras = { ciudadSeleccionada = null })
                         "Bilbao" -> Bilbau(botonDeAtras = { ciudadSeleccionada = null })
                     }
@@ -582,7 +594,9 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
 }
 
 @Composable
-fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
+fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
+            botonActividades2: () -> Unit, irGastronomia2: () -> Unit,
+           irHoteles2: () -> Unit) {
     Surface(
         modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.white)
@@ -661,7 +675,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = botonActividades2,
                         modifier = Modifier
                             .padding(top = 8.dp) // espacio pa arriba
                             .height(40.dp) // anchura d arriba abajo del boton
@@ -696,7 +710,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = irGastronomia2,
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -731,7 +745,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f)) // pa q se ponga a la derecha
                     Button(
-                        onClick = { /* ir a la otra pagina */ },
+                        onClick = irHoteles2,
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp)
@@ -1574,6 +1588,511 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
 }
 
 
+@Composable
+fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    )
+    {
+        Column(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        )
+        {Row(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.cream))
+                .fillMaxWidth()
+                .height(140.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            IconButton(
+                onClick = irAtras,
+                modifier = Modifier.padding(start = 16.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(27.dp)
+                )
+            }
+
+            Text(
+                text = "Actividades Donosti",
+                fontSize = 26.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
+
+            Spacer(modifier = Modifier.width(48.dp))
+        }
+
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card (
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )
+                )
+                {
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ){
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.cascoantiguo)
+                        )
+                        Text(
+                            text = "Casco Viejo",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Pasea por las estrechas calles medievales, observa las casas señoriales y " +
+                                    "la arquitectura histórica como la Casa Consistorial y las plazas Triángulo y Euskal Herria.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
+                            color = Color.Gray
+                        )
+                    }
+                }
+            }
+            //Nuevas actividades
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.interior_museo_gorrotxategi)
+                        )
+                        Text(
+                            text = "Museo de la Confitería Gorrotxategi",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Conoce la historia de la repostería en Tolosa, famosa por sus tejas y cigarrillos de Tolosa.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
+                            color = Color.Gray
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp)
+                        .background(color = Color.White),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.azoka_2_1)
+                        )
+                        Text(
+                            text = "Mercado de Tolosa",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(10.dp)
+                        )
+                        Text(
+                            text = "Mercado del Sábado: Famoso en toda la región, con productos frescos, artesanías y delicias locales. Especialmente recomendable para disfrutar de la gastronomía vasca.",
+                            fontSize = 13.sp,
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(6.dp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(60.dp))
+        }
+    }
+}
+
+@Composable
+fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    ) {
+        Column(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ){
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth()
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
+                }
+
+                Text(
+                    text = "Gastronomia Donosti",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+
+                Spacer(modifier = Modifier.width(48.dp))
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(380.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.melemele)
+                        )
+                        Text(
+                            text = "Mele-Mele",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Este restaurante es conocido por sus hamburguesas gourmet y " +
+                                    "otros platos de estilo casual con ingredientes de alta calidad. También ofrecen opciones vegetarianas y veganas.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(350.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.casajulian)
+                        )
+                        Text(
+                            text = "Restaurante Casa Julián",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Conocido por su famoso chuletón a la brasa, Casa Julián es una parada obligatoria para los amantes de la carne.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(350.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.botarrijatetxea)
+                        )
+                        Text(
+                            text = "Restaurante Botarri",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Ofrece una selección de cocina tradicional vasca con productos locales. " +
+                                    "Es conocido por sus menús que incluyen platos como el alubión de Tolosa.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(80.dp))
+        }
+    }
+}
+
+@Composable
+fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    ){
+        Column(modifier = Modifier
+            .background(color = colorResource(id = R.color.white))
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+        ){
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth()
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
+                }
+
+                Text(
+                    text = "Hoteles Donosti",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+
+                Spacer(modifier = Modifier.width(48.dp))
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(380.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.otel_oria)
+                        )
+                        Text(
+                            text = "Hotel Oria",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Un hotel acogedor y céntrico, ubicado cerca del casco antiguo y del río Oria.",
+                            fontSize = 16.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(350.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.hotelbidebide)
+                        )
+                        Text(
+                            text = "Hotel Bide Bide",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Un hotel boutique ubicado en pleno centro histórico de Tolosa.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(350.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.casarural_korteta)
+                        )
+                        Text(
+                            text = "Casa Rural Korteta",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Una casa rural situada a las afueras de Tolosa, ideal para quienes desean un entorno más tranquilo y natural.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
+            }
+            Spacer(modifier.height(80.dp))
+        }
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun myAppPreviewr(){
@@ -1600,7 +2119,8 @@ fun previewTolosa() {
 @Preview(showBackground = true)
 @Composable
 fun previewDonosti(){
-    Donosti(botonDeAtras = { /* NO TOCAR */ })
+    Donosti(botonDeAtras = {}, botonActividades2 = {},
+        irGastronomia2 = {}, irHoteles2 = {})
 }
 
 // para ver Zumarraga
@@ -1633,4 +2153,24 @@ fun previewGastronomiaTolosa(){
 @Composable
 fun previewHotelesTolosa(){
     hotelesTolosa(irAtras = {})
+}
+
+
+
+@Preview(showBackground = true)
+@Composable
+fun previewActividadesDonosti(){
+    actividadesDonosti(irAtras = {})
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewGastronomiaDonosti(){
+    gastronomiaDonosti(irAtras = {})
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewHotelesDonosti(){
+    hotelesDonosti(irAtras = {})
 }
