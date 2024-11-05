@@ -1083,43 +1083,35 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
         )
-        {
-            Row(
+        {Row(
             modifier = Modifier
                 .background(color = colorResource(id = R.color.cream))
-                .fillMaxWidth() // Asegúrate de que llene el ancho del contenedor
+                .fillMaxWidth()
                 .height(140.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
-            ){
-                Column(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .background(color = colorResource(R.color.cream))
-                        .width(80.dp),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-
-                )
-                {
-                    IconButton(
-                        onClick = irAtras
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back",
-                            modifier = Modifier
-                                .size(27.dp)
-                        )
-                    }
-                }
-                Spacer(modifier.width(60.dp))
-                Text(
-                    text = "Actividades Tolosa",
-                    fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            IconButton(
+                onClick = irAtras,
+                modifier = Modifier.padding(start = 16.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(27.dp)
                 )
             }
+
+            Text(
+                text = "Actividades Tolosa",
+                fontSize = 26.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
+
+            Spacer(modifier = Modifier.width(48.dp))
+        }
+
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
@@ -1269,36 +1261,31 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
         ){
             Row(
                 modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
                     .fillMaxWidth()
-                    .height(140.dp)
-                    .background(color = colorResource(id = R.color.cream)),
+                    .height(140.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
-            ){
-                Column(
-                    modifier = Modifier
-                        .width(80.dp)
-                        .fillMaxHeight(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
                 ) {
-                    IconButton(
-                        onClick = irAtras
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back",
-                            modifier = Modifier
-                                .size(27.dp)
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
                 }
-                Spacer(modifier.width(60.dp))
+
                 Text(
                     text = "Gastronomia Tolosa",
                     fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
                 )
+
+                Spacer(modifier = Modifier.width(48.dp))
             }
             Spacer(modifier.height(60.dp))
             Box(
@@ -1438,36 +1425,31 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
         ){
             Row(
                 modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
                     .fillMaxWidth()
-                    .height(140.dp)
-                    .background(color = colorResource(id = R.color.cream)),
+                    .height(140.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
-            ){
-                Column(
-                    modifier = Modifier
-                        .width(80.dp)
-                        .fillMaxHeight(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
                 ) {
-                    IconButton(
-                        onClick = irAtras
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back",
-                            modifier = Modifier
-                                .size(27.dp)
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
                 }
-                Spacer(modifier.width(60.dp))
+
                 Text(
                     text = "Hoteles Tolosa",
                     fontSize = 26.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
                 )
+
+                Spacer(modifier = Modifier.width(48.dp))
             }
             Spacer(modifier.height(60.dp))
             Box(
