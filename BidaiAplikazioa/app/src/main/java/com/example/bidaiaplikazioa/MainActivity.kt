@@ -483,7 +483,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
 
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
+                        painter = painterResource(id = R.drawable.actividad), // foto
                         contentDescription = null, // no hay nada
                         modifier = Modifier
                             .size(80.dp) // tamañp de la foto
@@ -518,7 +518,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.gastronomia),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -553,7 +553,7 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.hotel),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -649,7 +649,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth() // ocupa todo
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground), // foto
+                        painter = painterResource(id = R.drawable.actividad), // foto
                         contentDescription = null, // no hay nada
                         modifier = Modifier
                             .size(80.dp) // tamañp de la foto
@@ -684,7 +684,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.gastronomia),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -719,7 +719,7 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.hotel),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -808,7 +808,7 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.actividad),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -844,7 +844,7 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.gastronomia),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -880,7 +880,7 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.hotel),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -969,7 +969,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.actividad),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -1005,7 +1005,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.gastronomia),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
@@ -1041,7 +1041,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.hotel),
                         contentDescription = null,
                         modifier = Modifier
                             .size(80.dp)
