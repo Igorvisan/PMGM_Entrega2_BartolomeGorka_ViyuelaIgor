@@ -386,9 +386,9 @@ fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarGastronomia by remember { mutableStateOf(false) }
     var mostrarHoteles by remember { mutableStateOf(false) }
 
-    var mostrarActividades2 by remember { mutableStateOf(false) }
-    var mostrarGastronomia2 by remember { mutableStateOf(false) }
-    var mostrarHoteles2 by remember { mutableStateOf(false) }
+    var mostrarActividadesDonosti by remember { mutableStateOf(false) }
+    var mostrarGastronomiaDonosti by remember { mutableStateOf(false) }
+    var mostrarHotelesDonosti by remember { mutableStateOf(false) }
         Surface(modifier) { // resumido d lo d antes
             when {
                 mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
@@ -396,9 +396,9 @@ fun ShowApp(modifier: Modifier = Modifier) {
                 mostrarGastronomia -> gastronomiaTolosa(irAtras = {mostrarGastronomia = false})
                 mostrarHoteles -> hotelesTolosa(irAtras = {mostrarHoteles = false})
 
-                mostrarActividades2 -> actividadesDonosti(irAtras = {mostrarActividades2 = false})
-                mostrarGastronomia2 -> gastronomiaDonosti(irAtras = {mostrarGastronomia2 = false})
-                mostrarHoteles2 -> hotelesDonosti(irAtras = {mostrarHoteles2 = false})
+                mostrarActividadesDonosti -> actividadesDonosti(irAtras = {mostrarActividadesDonosti = false})
+                mostrarGastronomiaDonosti -> gastronomiaDonosti(irAtras = {mostrarGastronomiaDonosti = false})
+                mostrarHotelesDonosti -> hotelesDonosti(irAtras = {mostrarHotelesDonosti = false})
 
                 ciudadSeleccionada != null -> {
                     when (ciudadSeleccionada) {
@@ -410,9 +410,9 @@ fun ShowApp(modifier: Modifier = Modifier) {
                         )
                         "Donosti" -> Donosti(
                             botonDeAtras = { ciudadSeleccionada = null },
-                            botonActividades2 = {mostrarActividades2 = true},
-                            irGastronomia2 = {mostrarGastronomia2 = true},
-                            irHoteles2 = { mostrarHoteles2 = true}
+                            botonActividades2 = {mostrarActividadesDonosti = true},
+                            irGastronomia2 = {mostrarGastronomiaDonosti = true},
+                            irHoteles2 = { mostrarHotelesDonosti = true}
                         )
                         "Zumarraga" -> Zumarraga(botonDeAtras = { ciudadSeleccionada = null })
                         "Bilbao" -> Bilbau(botonDeAtras = { ciudadSeleccionada = null })
