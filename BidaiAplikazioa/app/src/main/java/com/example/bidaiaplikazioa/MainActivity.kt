@@ -4,6 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -54,8 +60,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.bidaiaplikazioa.ui.theme.BidaiAplikazioaTheme
 import com.example.bidaiaplikazioa.uiElements.confirmarReserva
+import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 
 class MainActivity : ComponentActivity() {
@@ -427,6 +437,11 @@ fun ShowApp(modifier: Modifier = Modifier) {
     var mostrarActividadesZumarraga by remember { mutableStateOf(false) }
     var mostrarGastronomiaZumarraga by remember { mutableStateOf(false) }
     var mostrarHotelesZumarraga by remember { mutableStateOf(false) }
+
+    var mostrarActividadesBilbao by remember { mutableStateOf(false) }
+    var mostrarGastronomiaBilbao by remember { mutableStateOf(false) }
+    var mostrarHotelesBilbao by remember { mutableStateOf(false) }
+
         Surface(modifier) { // resumido d lo d antes
             when {
                 mostrarAlPrincipio -> pantallaIniciarSesion(onContinueClicked = { mostrarAlPrincipio = false })
@@ -441,6 +456,10 @@ fun ShowApp(modifier: Modifier = Modifier) {
                 mostrarActividadesZumarraga -> actividadesZumarraga (irAtras = {mostrarActividadesZumarraga = false})
                 mostrarGastronomiaZumarraga -> gastronomiaZumarraga (irAtras = {mostrarGastronomiaZumarraga = false})
                 mostrarHotelesZumarraga -> hotelesZumarraga(irAtras = {mostrarHotelesZumarraga = false})
+
+                mostrarActividadesBilbao -> actividadesBilbao(irAtras = {mostrarActividadesBilbao = false})
+                mostrarGastronomiaBilbao -> gastronomiaBilbao (irAtras = {mostrarGastronomiaBilbao = false})
+                mostrarHotelesBilbao -> hotelesBilbao(irAtras = {mostrarHotelesBilbao = false})
 
                 ciudadSeleccionada != null -> {
                     when (ciudadSeleccionada) {
@@ -462,7 +481,12 @@ fun ShowApp(modifier: Modifier = Modifier) {
                             irGastronomia3 = {mostrarGastronomiaZumarraga = true},
                             irHoteles3 = {mostrarHotelesZumarraga = true}
                         )
-                        "Bilbao" -> Bilbau(botonDeAtras = { ciudadSeleccionada = null })
+                        "Bilbao" -> Bilbau(
+                            botonDeAtras = { ciudadSeleccionada = null},
+                            botonActividades4 = {mostrarActividadesBilbao = true},
+                            irGastronomia4 = {mostrarGastronomiaBilbao = true},
+                            irHoteles4 = {mostrarHotelesBilbao = true}
+                        )
                     }
                 }
                 else -> paginaPrincipal(botonDeSelecionarCiudad = { ciudadSeleccionada = it }) // f
@@ -990,7 +1014,9 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
 
 
 @Composable
-fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
+fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
+           botonActividades4: () -> Unit, irGastronomia4: () -> Unit,
+           irHoteles4: () -> Unit) {
     Surface( // fondo y estilo
         modifier = modifier.fillMaxSize(), // ocupa todo el espacio
         color = colorResource(id = R.color.white) // fondo blanco
@@ -1062,7 +1088,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* Navegar a otra página */ },
+                        onClick = botonActividades4,
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp),
@@ -1100,7 +1126,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* Navegar a otra página */ },
+                        onClick = irGastronomia4,
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp),
@@ -1138,7 +1164,7 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Button(
-                        onClick = { /* Navegar a otra página */ },
+                        onClick = irHoteles4,
                         modifier = Modifier
                             .padding(top = 8.dp)
                             .height(40.dp),
@@ -3098,10 +3124,10 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Pension Urola está en Zumárraga, a 25 km de Santuario de Arantzazu, y tiene bar, habitaciones libres de humo y wifi gratis en todo el alojamiento. El hostal o pensión dispone de habitaciones familiares.",
+                            text = "Este es uno de los hoteles más emblemáticos de Bilbao, con una historia que data de 1926. Su decoración clásica y sus amplias habitaciones ofrecen una experiencia elegante y atemporal. El hotel cuenta con un restaurante propio y está en pleno centro, lo que facilita el acceso a tiendas, restaurantes y atracciones turísticas.",
                             fontSize = 16.sp,
                             color = colorResource(id = R.color.black2),
-
+                            maxLines = 6,
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -3245,6 +3271,697 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
     }
 }
 
+@Composable
+fun actividadesBilbao(modifier: Modifier = Modifier, irAtras: () -> Unit){
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    )
+    {
+        Column(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        )
+        {
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth()
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
+                }
+
+                Text(
+                    text = "Actividades Bilbao",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+
+                Spacer(modifier = Modifier.width(48.dp))
+            }
+
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                )
+                {
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ){
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.museo_guggenheim)
+                        )
+                        Text(
+                            text = "Museo Guggenheim",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Explora el icónico Museo Guggenheim, una de las atracciones más famosas de Bilbao. Además de la impresionante arquitectura de Frank Gehry, encontrarás exposiciones de arte contemporáneo de clase mundial.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 4,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            //Nuevas actividades
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.fp_mercado_ribera_bilbao)
+                        )
+                        Text(
+                            text = "Casco Viejo y Mercado de la Ribera",
+                            fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Recorre las Siete Calles del Casco Viejo, llenas de historia, pequeñas tiendas y bares de pintxos. El Mercado de la Ribera es ideal para degustar productos locales.",
+                            fontSize = 13.sp,
+                            maxLines = 3,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis,
+                            color = colorResource(id = R.color.black2),
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(450.dp)
+                    .background(color = colorResource(id = R.color.white)),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.fp_plazanueva)
+                        )
+                        Text(
+                            text = "Plaza Nueva y Calle Ledesma",
+                            color = colorResource(id = R.color.black2),
+
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(10.dp)
+                        )
+                        Text(
+                            text = "Visita la Plaza Nueva, una hermosa plaza neoclásica, ideal para tomar algo en sus terrazas. Luego, explora los bares de pintxos de la Calle Ledesma, una de las calles más animadas.",
+                            fontSize = 13.sp,
+                            maxLines = 4,
+                            overflow = TextOverflow.Ellipsis,
+                            color = colorResource(id = R.color.black2),
+                            modifier = Modifier.padding(6.dp)
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(60.dp))
+        }
+    }
+}
+
+@Composable
+fun gastronomiaBilbao(modifier: Modifier = Modifier, irAtras: () -> Unit){
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    ) {
+        Column(
+            modifier = Modifier
+                .background(color = colorResource(id = R.color.white))
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ){
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth()
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
+                }
+
+                Text(
+                    text = "Gastronomía Bilbao",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+
+                Spacer(modifier = Modifier.width(48.dp))
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(430.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.pintxos_casci_viejo)
+                        )
+                        Text(
+                            text = "Ruta de Pintxos en el Casco Viejo",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Algunos de los bares más populares son Café Bar Bilbao y Gure Toki en la Plaza Nueva, donde podrás probar pintxos variados como la gilda (banderilla de aceituna, piparra y anchoa), croquetas y pintxos creativos.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 4,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(400.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.la_vina_del_ensanche)
+                        )
+                        Text(
+                            text = "La Viña del Ensanche",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Este lugar lleva sirviendo platos tradicionales desde 1927. Prueba su famoso plato de txuleta (chuleta de vaca vieja) o sus tapas de jamón ibérico.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(400.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.labrasa_canalla)
+                        )
+                        Text(
+                            text = "La Brasa Canalla",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "La hamburguesería más famosa de Bilbao es \"La Brasa Canalla\". Este lugar se ha ganado una excelente reputación entre locales y visitantes por sus hamburguesas gourmet, elaboradas con ingredientes de alta calidad y con un toque innovador.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 3,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(80.dp))
+        }
+    }
+}
+
+@Composable
+fun hotelesBilbao(modifier: Modifier = Modifier, irAtras: () -> Unit){
+    var showDialog by remember { mutableStateOf(false) }
+
+    if(showDialog){
+        confirmarReserva(
+            onDismiss = {showDialog = false}
+        )
+    }
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+        color = colorResource(id = R.color.white)
+    ){
+        Column(modifier = Modifier
+            .background(color = colorResource(id = R.color.white))
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+        ){
+            Row(
+                modifier = Modifier
+                    .background(color = colorResource(id = R.color.cream))
+                    .fillMaxWidth()
+                    .height(140.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                IconButton(
+                    onClick = irAtras,
+                    modifier = Modifier.padding(start = 16.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.size(27.dp)
+                    )
+                }
+
+                Text(
+                    text = "Hoteles Bilbao",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+
+                Spacer(modifier = Modifier.width(48.dp))
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(430.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.exterior_domine_hotel)
+                        )
+                        Text(
+                            text = "Gran Hotel Domine Bilbao",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Este hotel de lujo es famoso por su elegante diseño y sus habitaciones con vistas directas al Museo Guggenheim. Tiene una terraza en la azotea donde sirven el desayuno, ofreciendo una vista espectacular del museo y de la ciudad. Además, cuenta con un spa, gimnasio y servicio de alta calidad.",
+                            fontSize = 16.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 5,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(450.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.hotel_calton)
+                        )
+                        Text(
+                            text = "Hotel Calton",
+                            fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.black2),
+
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Este es uno de los hoteles más emblemáticos de Bilbao, con una historia que data de 1926. Su decoración clásica y sus amplias habitaciones ofrecen una experiencia elegante y atemporal. El hotel cuenta con un restaurante propio y está en pleno centro, lo que facilita el acceso a tiendas, restaurantes y atracciones turísticas.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 4,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(400.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .width(270.dp)
+                        .fillMaxHeight(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.nyx_bilbao)
+                        )
+                        Text(
+                            text = "NYX Hotel Bilbao by Leonardo Hotels",
+                            color = colorResource(id = R.color.black2),
+
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Un hotel moderno y vibrante con una decoración artística y temática urbana. Las habitaciones son cómodas y bien equipadas, y el hotel cuenta con una terraza-bar en la azotea con vistas al Casco Viejo. Su ubicación permite explorar las calles históricas y los bares de pintxos a pocos pasos.",
+                            fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+                            maxLines = 4,
+                            modifier = Modifier
+                                .padding(6.dp),
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(80.dp))
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun myAppPreviewr(){
@@ -3287,7 +4004,8 @@ fun previewZumarraga(){
 @Preview(showBackground = true)
 @Composable
 fun previewBilbau(){
-    Bilbau(botonDeAtras = { /* NO TOCAR */ })
+    Bilbau(botonDeAtras = {}, botonActividades4 = {},
+    irGastronomia4 = {}, irHoteles4 = {})
 }
 
 @Preview(showBackground = true)
@@ -3346,4 +4064,22 @@ fun previewGastronomiaZumarraga(){
 @Composable
 fun previewHotelesZumarraga(){
     hotelesZumarraga(irAtras = {})
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewActividadesBilbao(){
+    actividadesBilbao(irAtras = {})
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewGastronomiaBilbao(){
+    gastronomiaBilbao(irAtras = {})
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewHotelesBilbao(){
+    hotelesBilbao(irAtras = {})
 }
