@@ -2478,7 +2478,7 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 Card(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(270.dp),
+                        .width(260.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
                     colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
                 ){
@@ -2487,22 +2487,20 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.melemele)
+                            painter = painterResource(id = R.drawable.gastronomia_zumarraga1)
                         )
                         Text(
-                            text = "Mele-Mele",
+                            text = "Restaurante Etxeberri",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Este restaurante es conocido por sus hamburguesas gourmet y " +
-                                    "otros platos de estilo casual con ingredientes de alta calidad. También ofrecen opciones vegetarianas y veganas.",
+                            text = "El Hotel Etxeberri cuenta con una gran experiencia y tradición en todo tipo de celebraciones familiares y eventos empresariales.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2542,21 +2540,20 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.casajulian)
+                            painter = painterResource(id = R.drawable.gastronomia_zumarraga2)
                         )
                         Text(
-                            text = "Restaurante Casa Julián",
+                            text = "Restaurante Kabia",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Conocido por su famoso chuletón a la brasa, Casa Julián es una parada obligatoria para los amantes de la carne.",
+                            text = "Restaurante acogedor con 3 salas independientes, una de ellas totalmente privatizable, indicada para reuniones de empresa o eventos familiares.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2596,22 +2593,20 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.botarrijatetxea)
+                            painter = painterResource(id = R.drawable.gastronomia_zumarraga3)
                         )
                         Text(
-                            text = "Restaurante Botarri",
+                            text = "Bar Restaurante BIDEZAR",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Ofrece una selección de cocina tradicional vasca con productos locales. " +
-                                    "Es conocido por sus menús que incluyen platos como el alubión de Tolosa.",
+                            text = "Local ideal para reunirse con tus amigos y poder degustar de unas ensaladas,raciones ,pintxos,platos combinados tostas y menu del dia",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2716,22 +2711,20 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ){
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.cascoantiguo)
+                            painter = painterResource(id = R.drawable.actividad_zumarraga1)
                         )
                         Text(
-                            text = "Casco Viejo",
+                            text = "Tour de la pelota vasca",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Pasea por las estrechas calles medievales, observa las casas señoriales y " +
-                                    "la arquitectura histórica como la Casa Consistorial y las plazas Triángulo y Euskal Herria.",
+                            text = "no podéis perderos este tour de la pelota vasca. Os contaremos todo sobre este deporte y os convertiréis en pelotari por un día. ¡Bienvenidos a la Comarca del Urola!",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
@@ -2776,21 +2769,20 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.interior_museo_gorrotxategi)
+                            painter = painterResource(id = R.drawable.actividad_zumarraga2)
                         )
                         Text(
-                            text = "Museo de la Confitería Gorrotxategi",
+                            text = "Excursión a un caserío vasco",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Conoce la historia de la repostería en Tolosa, famosa por sus tejas y cigarrillos de Tolosa.",
+                            text = "En esta excursión al lagar de Igartubeiti visitaremos un caserío del siglo XVI",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
@@ -2816,7 +2808,7 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
+                    .height(450.dp)
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
@@ -2834,18 +2826,17 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.azoka_2_1)
+                            painter = painterResource(id = R.drawable.actividad_zumarraga3)
                         )
                         Text(
-                            text = "Mercado de Tolosa",
+                            text = "ROOFTOP VERMOUTH",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(10.dp)
                         )
                         Text(
-                            text = "Mercado del Sábado: Famoso en toda la región, con productos frescos, artesanías y delicias locales. Especialmente recomendable para disfrutar de la gastronomía vasca.",
+                            text = "Te esperan vistas increíbles e historias asombrosas. Todos los sábados de 13.30 a 14.15 h en nuestro Rooftop. Es indispensable reservar plaza a través de la plataforma eventbrite. Punto de reunión la recepción del alojamiento.",
                             fontSize = 13.sp,
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray,
                             modifier = Modifier.padding(6.dp)
@@ -2939,21 +2930,73 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.otel_oria)
+                            painter = painterResource(id = R.drawable.hotel_zumarraga1)
                         )
                         Text(
-                            text = "Hotel Oria",
+                            text = "Pension Urola",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Un hotel acogedor y céntrico, ubicado cerca del casco antiguo y del río Oria.",
+                            text = "Pension Urola está en Zumárraga, a 25 km de Santuario de Arantzazu, y tiene bar, habitaciones libres de humo y wifi gratis en todo el alojamiento. El hostal o pensión dispone de habitaciones familiares.",
                             fontSize = 16.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(130.dp),
+                            contentAlignment = Alignment.Center
+                        ){
+                            Button(
+                                onClick = {showDialog = true},
+                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                            ) {
+                                Text(
+                                    text = "¡Me apunto!"
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Spacer(modifier.height(60.dp))
+            Box(
+                modifier = Modifier
+                    .height(450.dp)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ){
+                Card(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(270.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                ){
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Image(
+                            contentDescription = null,
+                            painter = painterResource(id = R.drawable.hotel_zumarraga2)
+                        )
+                        Text(
+                            text = "Casa Rural Martiamuno Landetxea",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            modifier = Modifier
+                                .padding(10.dp)
+                        )
+                        Text(
+                            text = "Casa Rural Martiamuno Landetxea dispone de vistas a la montaña, wifi gratis y parking privado gratis. Se encuentra en Zumárraga, a 32 km de Santuario de Arantzazu.",
+                            fontSize = 13.sp,
+                            modifier = Modifier
+                                .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2993,75 +3036,20 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.hotelbidebide)
+                            painter = painterResource(id = R.drawable.hotel_zumarraga3)
                         )
                         Text(
-                            text = "Hotel Bide Bide",
+                            text = "Hotel Mauleon",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Un hotel boutique ubicado en pleno centro histórico de Tolosa.",
+                            text = "El Hotel Mauleon ofrece un restaurante y conexión Wi-Fi gratis en Legazpi, a 60 km de San Sebastián, en el País Vasco.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(130.dp),
-                            contentAlignment = Alignment.Center
-                        ){
-                            Button(
-                                onClick = {showDialog = true},
-                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
-                            ) {
-                                Text(
-                                    text = "¡Me apunto!"
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-            Spacer(modifier.height(60.dp))
-            Box(
-                modifier = Modifier
-                    .height(400.dp)
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
-            ){
-                Card(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
-                    Column(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        Image(
-                            contentDescription = null,
-                            painter = painterResource(id = R.drawable.casarural_korteta)
-                        )
-                        Text(
-                            text = "Casa Rural Korteta",
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp,
-                            modifier = Modifier
-                                .padding(10.dp)
-                        )
-                        Text(
-                            text = "Una casa rural situada a las afueras de Tolosa, ideal para quienes desean un entorno más tranquilo y natural.",
-                            fontSize = 13.sp,
-                            modifier = Modifier
-                                .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
