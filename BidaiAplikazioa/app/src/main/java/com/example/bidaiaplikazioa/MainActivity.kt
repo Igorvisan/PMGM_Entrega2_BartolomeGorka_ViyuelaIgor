@@ -74,35 +74,47 @@ class MainActivity : ComponentActivity() {
 fun pantallaIniciarSesion(
     onContinueClicked: () -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     var text by remember { mutableStateOf("") }
     Surface(
-        modifier,
+        modifier = modifier.fillMaxSize(),
         color = colorResource(id = R.color.cream)
-    ){
-        Column (
-            modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ){
-            Text(
-                "Bienvenido a nuestra aplicación de reservas!"
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Image(
+                painter = painterResource(id = R.drawable.viajes_go),
+                contentDescription = null,
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 16.dp)
+                    .size(350.dp)
             )
-            OutlinedTextField(
-                value = text,
-                onValueChange = {text = it}, //onValueChange = { text = it }: Cada vez que el usuario escriba algo,
-                // el contenido del campo de texto cambiará y actualizará el valor de text
-                label = { Text("Nombre") },
-                placeholder = {Text("Pon tu nombre")},
-                shape = RoundedCornerShape(10.dp),
-                modifier = Modifier.padding(vertical = 18.dp),
-            )
-            Button(
-                onClick = onContinueClicked,
-                modifier.padding(vertical = 24.dp),
-                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 50.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Entrar")
+                Text(
+                    "Pon tu nombre para registrarte!",
+                    modifier = Modifier.padding(bottom = 10.dp)
+                )
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    label = { Text("Nombre") },
+                    placeholder = { Text("Pon tu nombre") },
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.padding(vertical =10.dp),
+                )
+                Button(
+                    onClick = onContinueClicked,
+                    modifier = Modifier.padding(vertical = 24.dp),
+                    colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                ) {
+                    Text("Entrar")
+                }
             }
         }
     }
