@@ -106,8 +106,9 @@ fun pantallaIniciarSesion(
                     label = { Text("Nombre") },
                     placeholder = { Text("Pon tu nombre") },
                     shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.padding(vertical =10.dp),
+                    modifier = Modifier.padding(vertical = 10.dp),
                 )
+
                 Button(
                     onClick = onContinueClicked,
                     modifier = Modifier.padding(vertical = 24.dp),
@@ -192,9 +193,13 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Tolosa") }) {
+                        ElevatedButton(
+                            onClick = { botonDeSelecionarCiudad("Tolosa") },
+                            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
+                        ) {
                             Text(text = "Viajar")
                         }
+
                     }
                 }
             }
@@ -256,9 +261,15 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Donosti") }) {
-                            Text(text = "Viajar")
+                        ElevatedButton(
+                            onClick = { botonDeSelecionarCiudad("Donosti") },
+                            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black)) // Opcional: Color de fondo
+                        ) {
+                            Text(
+                                text = "Viajar",
+                            )
                         }
+
                     }
                 }
             }
@@ -317,9 +328,14 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Zumarraga") }) {
+                        ElevatedButton(
+                            onClick = { botonDeSelecionarCiudad("Zumarraga") },
+                            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
+                        ) {
                             Text(text = "Viajar")
                         }
+
+
                     }
                 }
             }
@@ -378,9 +394,13 @@ fun paginaPrincipal(modifier: Modifier = Modifier, botonDeSelecionarCiudad: (Str
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        ElevatedButton(onClick = { botonDeSelecionarCiudad("Bilbao") }) {
+                        ElevatedButton(
+                            onClick = { botonDeSelecionarCiudad("Bilbao") },
+                            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
+                        ) {
                             Text(text = "Viajar")
                         }
+
                     }
                 }
             }
@@ -536,11 +556,13 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                     Button(
                         onClick = botonActividades,
                         modifier = Modifier
-                            .padding(top = 8.dp) // espacio pa arriba
-                            .height(40.dp) // anchura d arriba abajo del boton
+                            .padding(top = 8.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
@@ -572,10 +594,12 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irGastronomia,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -607,10 +631,12 @@ fun Tolosa(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irHoteles,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -704,11 +730,13 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                     Button(
                         onClick = botonActividades2,
                         modifier = Modifier
-                            .padding(top = 8.dp) // espacio pa arriba
-                            .height(40.dp) // anchura d arriba abajo del boton
+                            .padding(top = 8.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp)) // espacio con el d abajo
@@ -740,10 +768,12 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irGastronomia2,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -775,10 +805,12 @@ fun Donosti(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irHoteles2,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -866,10 +898,12 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = botonActividades3,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
 
@@ -902,10 +936,12 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irGastronomia3,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
 
@@ -938,10 +974,12 @@ fun Zumarraga(modifier: Modifier = Modifier, botonDeAtras: () -> Unit,
                         onClick = irHoteles3,
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
 
@@ -1027,10 +1065,12 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
                     ) {
                         Text(text = "IR")
                     }
+
                 }
             }
 
@@ -1063,7 +1103,9 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
+
                     ) {
                         Text(text = "IR")
                     }
@@ -1099,7 +1141,9 @@ fun Bilbau(modifier: Modifier = Modifier, botonDeAtras: () -> Unit) {
                         onClick = { /* Navegar a otra página */ },
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .height(40.dp)
+                            .height(40.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.black))
+
                     ) {
                         Text(text = "IR")
                     }
@@ -1184,6 +1228,8 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                 {
                     Column(
                         modifier = Modifier.fillMaxSize()
+
+
                     ){
                         Image(
                             contentDescription = null,
@@ -1193,18 +1239,19 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             text = "Casco Viejo",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
                             text = "Pasea por las estrechas calles medievales, observa las casas señoriales y " +
-                                    "la arquitectura histórica como la Casa Consistorial y las plazas Triángulo y Euskal Herria.",
+                                    "la arquitectura histórica como la Casa Consistorial.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
+                            color = colorResource(id = R.color.black2),
                         )
                         Box(
                             modifier = Modifier
@@ -1213,13 +1260,18 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             contentAlignment = Alignment.Center
                         ){
                             Button(
-                                onClick = {showDialog = true},
-                                colors = ButtonDefaults.buttonColors(colorResource(id = R.color.black)),
+                                onClick = { showDialog = true },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = colorResource(id = R.color.black) // Color de fondo
+                                )
                             ) {
                                 Text(
-                                    text = "¡Me apunto!"
+                                    text = "¡Me apunto!",
+                                    color = colorResource(id = R.color.white) // Color del texto (asegúrate de que se vea bien sobre el fondo)
                                 )
                             }
+
+
                         }
                     }
                 }
@@ -1253,6 +1305,8 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             text = "Museo de la Confitería Gorrotxategi",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(10.dp)
                         )
@@ -1261,9 +1315,8 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
+                            color = colorResource(id = R.color.black2),
                         )
                         Box(
                             modifier = Modifier
@@ -1293,11 +1346,11 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
                         .width(270.dp)
-                        .background(color = Color.White),
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier
@@ -1310,17 +1363,18 @@ fun actividadesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Mercado de Tolosa",
                             fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(10.dp)
                         )
                         Text(
                             text = "Mercado del Sábado: Famoso en toda la región, con productos frescos, artesanías y delicias locales. Especialmente recomendable para disfrutar de la gastronomía vasca.",
                             fontSize = 13.sp,
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray,
+                            color = colorResource(id = R.color.black2),
                             modifier = Modifier.padding(6.dp)
                         )
+
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -1395,16 +1449,18 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Box(
                 modifier = Modifier
                     .height(380.dp)
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
+                    .fillMaxWidth()
+                .background(color = colorResource(id = R.color.white)),
+            contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1416,6 +1472,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             text = "Mele-Mele",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(10.dp)
                         )
@@ -1425,6 +1483,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
+                            color = colorResource(id = R.color.black2),
+
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
@@ -1453,13 +1513,14 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1469,6 +1530,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Restaurante Casa Julián",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1477,6 +1540,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Conocido por su famoso chuletón a la brasa, Casa Julián es una parada obligatoria para los amantes de la carne.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
@@ -1507,13 +1572,14 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1523,6 +1589,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Restaurante Botarri",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1532,6 +1600,8 @@ fun gastronomiaTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             text = "Ofrece una selección de cocina tradicional vasca con productos locales. " +
                                     "Es conocido por sus menús que incluyen platos como el alubión de Tolosa.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
@@ -1615,13 +1685,14 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1631,6 +1702,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Hotel Oria",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1639,6 +1712,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Un hotel acogedor y céntrico, ubicado cerca del casco antiguo y del río Oria.",
                             fontSize = 16.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
@@ -1669,13 +1744,14 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1685,6 +1761,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Hotel Bide Bide",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1693,6 +1771,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Un hotel boutique ubicado en pleno centro histórico de Tolosa.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
@@ -1723,13 +1803,14 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
-                Card(
+                Card (
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
-                ){
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White
+                    )){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -1739,6 +1820,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Casa Rural Korteta",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1747,6 +1830,8 @@ fun hotelesTolosa(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Una casa rural situada a las afueras de Tolosa, ideal para quienes desean un entorno más tranquilo y natural.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             maxLines = 3,
