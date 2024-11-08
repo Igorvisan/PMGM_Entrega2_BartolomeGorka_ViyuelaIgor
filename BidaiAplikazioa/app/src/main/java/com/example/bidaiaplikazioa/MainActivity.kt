@@ -1839,22 +1839,21 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ){
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.cascoantiguo)
+                            painter = painterResource(id = R.drawable.paseo_barco_donos)
                         )
                         Text(
-                            text = "Casco Viejo",
+                            text = "Paseo en barco",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Pasea por las estrechas calles medievales, observa las casas señoriales y " +
-                                    "la arquitectura histórica como la Casa Consistorial y las plazas Triángulo y Euskal Herria.",
+                            text = "En plena bahía de La Concha se alza la isla de Santa Clara, uno de los símbolos de San Sebastián. ¡Acercaos hasta ella con este paseo en barco!",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
+                            maxLines = 4,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
@@ -1899,21 +1898,21 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.interior_museo_gorrotxategi)
+                            painter = painterResource(id = R.drawable.acti_donos)
                         )
                         Text(
-                            text = "Museo de la Confitería Gorrotxategi",
+                            text = "Tour de literatura y cine",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Conoce la historia de la repostería en Tolosa, famosa por sus tejas y cigarrillos de Tolosa.",
+                            text = "En este tour de literatura y cine por San Sebastián nos sumergiremos en la ficción de varias novelas y películas que se han ambientado en la capital de Guipúzcoa. ¡Luces, cámara, acción!",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
+                            maxLines = 5,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray
                         )
@@ -1957,18 +1956,18 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.azoka_2_1)
+                            painter = painterResource(id = R.drawable.acti2_donos)
                         )
                         Text(
-                            text = "Mercado de Tolosa",
+                            text = "Estadio Reale Arena Interactivo Guiado",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(10.dp)
                         )
                         Text(
-                            text = "Mercado del Sábado: Famoso en toda la región, con productos frescos, artesanías y delicias locales. Especialmente recomendable para disfrutar de la gastronomía vasca.",
+                            text = "Descubre el nuevo estadio Reale Arena en un recorrido interactivo diseñado pensando en toda la familia.",
                             fontSize = 13.sp,
-                            maxLines = 3,
+                            maxLines = 6,
                             overflow = TextOverflow.Ellipsis,
                             color = Color.Gray,
                             modifier = Modifier.padding(6.dp)
@@ -2064,22 +2063,20 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.melemele)
+                            painter = painterResource(id = R.drawable.gastronomia_donos)
                         )
                         Text(
-                            text = "Mele-Mele",
+                            text = "Txirrita Sagardotegia",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Este restaurante es conocido por sus hamburguesas gourmet y " +
-                                    "otros platos de estilo casual con ingredientes de alta calidad. También ofrecen opciones vegetarianas y veganas.",
+                            text = "Estamos en pleno centro de San Sebastián, a un paso de la Concha. Ir de sidrería sin salir de la ciudad. El menú tradicional de sidrería elaborado con los mejores productos del mercado.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2119,21 +2116,20 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.casajulian)
+                            painter = painterResource(id = R.drawable.gastronomia_donos2)
                         )
                         Text(
-                            text = "Restaurante Casa Julián",
+                            text = "Trikuharri Taberna Jatetxea",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Conocido por su famoso chuletón a la brasa, Casa Julián es una parada obligatoria para los amantes de la carne.",
+                            text = "Taberna sencilla y acogedora que sirve platos y raciones de la cocina típica vasca.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2173,22 +2169,20 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.botarrijatetxea)
+                            painter = painterResource(id = R.drawable.gastronomia_donos3)
                         )
                         Text(
-                            text = "Restaurante Botarri",
+                            text = "Bar El Kbzón",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Ofrece una selección de cocina tradicional vasca con productos locales. " +
-                                    "Es conocido por sus menús que incluyen platos como el alubión de Tolosa.",
+                            text = "Bar-Restaurante de pintxos y raciones elaborados con mucho mimo y producto de temporada.Vistas maravillosas a la playa de la Zurriola.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2280,21 +2274,20 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.otel_oria)
+                            painter = painterResource(id = R.drawable.hotel_donos1)
                         )
                         Text(
-                            text = "Hotel Oria",
+                            text = "Hotel Parma",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Un hotel acogedor y céntrico, ubicado cerca del casco antiguo y del río Oria.",
+                            text = "Este pequeño hotel goza de vistas espectaculares a la bahía de La Zurriola y está situado en pleno corazón del clásico San Sebastián, cerca del centro histórico.",
                             fontSize = 16.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2318,7 +2311,7 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(400.dp)
+                    .height(450.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -2334,21 +2327,20 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.hotelbidebide)
+                            painter = painterResource(id = R.drawable.hotel_donos2)
                         )
                         Text(
-                            text = "Hotel Bide Bide",
+                            text = "Casual de las Olas",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Un hotel boutique ubicado en pleno centro histórico de Tolosa.",
+                            text = "Casual de las Olas San Sebastián está muy bien situado en el barrio de Amara, San Sebastián, a 2,2 km de Playa de Zurriola, a 2,5 km de Playa de Ondarreta y a 2 km de Teatro Victoria Eugenia.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
@@ -2372,7 +2364,7 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             Spacer(modifier.height(60.dp))
             Box(
                 modifier = Modifier
-                    .height(400.dp)
+                    .height(500.dp)
                     .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ){
@@ -2388,27 +2380,26 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     ) {
                         Image(
                             contentDescription = null,
-                            painter = painterResource(id = R.drawable.casarural_korteta)
+                            painter = painterResource(id = R.drawable.hotel_donos3)
                         )
                         Text(
-                            text = "Casa Rural Korteta",
+                            text = "Mercure Monte Igueldo",
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
                         )
                         Text(
-                            text = "Una casa rural situada a las afueras de Tolosa, ideal para quienes desean un entorno más tranquilo y natural.",
+                            text = "El Mercure Monte Igueldo ofrece un entorno pintoresco en el monte Igueldo y vistas impresionantes a la bahía de San Sebastián.",
                             fontSize = 13.sp,
                             modifier = Modifier
                                 .padding(6.dp),
-                            maxLines = 3,
                             overflow = TextOverflow.Ellipsis
                         )
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(130.dp),
+                                .height(230.dp),
                             contentAlignment = Alignment.Center
                         ){
                             Button(
@@ -2423,7 +2414,7 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     }
                 }
             }
-            Spacer(modifier.height(80.dp))
+            Spacer(modifier.height(120.dp))
         }
     }
 }
