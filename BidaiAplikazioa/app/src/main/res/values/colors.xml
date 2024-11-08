@@ -7,5 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cream">#f5eaa4</color>
+    <color name="cream">#3F88C5</color>
+    <color name="background">#FFFFFF</color>  <!-- Fondo blanco en modo claro -->
+    <color name="textPrimary">#000000</color>  <!-- Texto oscuro en modo claro -->
+    <color name="textSecondary">#666666</color>  <!-- Texto secundario oscuro -->
 </resources>

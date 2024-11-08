@@ -98,7 +98,7 @@ fun pantallaIniciarSesion(
             ) {
                 Text(
                     "Pon tu nombre para registrarte!",
-                    modifier = Modifier.padding(bottom = 10.dp)
+                    modifier = Modifier.padding(bottom = 16.dp)
                 )
                 OutlinedTextField(
                     value = text,

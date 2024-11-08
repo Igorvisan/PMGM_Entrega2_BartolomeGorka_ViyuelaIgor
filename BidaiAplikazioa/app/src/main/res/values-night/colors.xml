@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="black">#FFFFFF</color>  <!-- Fondo oscuro -->
+    <color name="white">#000000</color>  <!-- Texto claro en modo oscuro -->
+    <color name="cream">#2C6A92</color>  <!-- Un tono de crema más oscuro -->
+    <color name="background">#000000</color>  <!-- Fondo negro en modo oscuro -->
+    <color name="textPrimary">#E1E1E1</color>  <!-- Texto claro en modo oscuro -->
+    <color name="textSecondary">#B0B0B0</color>  <!-- Texto secundario en modo oscuro -->
+</resources>
