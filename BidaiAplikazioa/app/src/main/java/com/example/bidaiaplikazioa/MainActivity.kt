@@ -2611,10 +2611,11 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(260.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2625,6 +2626,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Restaurante Etxeberri",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2633,6 +2636,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "El Hotel Etxeberri cuenta con una gran experiencia y tradición en todo tipo de celebraciones familiares y eventos empresariales.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2664,10 +2669,11 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2678,6 +2684,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Restaurante Kabia",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2686,6 +2694,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Restaurante acogedor con 3 salas independientes, una de ellas totalmente privatizable, indicada para reuniones de empresa o eventos familiares.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2717,10 +2727,11 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2731,6 +2742,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Bar Restaurante BIDEZAR",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2739,6 +2752,8 @@ fun gastronomiaZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Local ideal para reunirse con tus amigos y poder degustar de unas ensaladas,raciones ,pintxos,platos combinados tostas y menu del dia",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2830,14 +2845,13 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                     .background(color = colorResource(id = R.color.white)),
                 contentAlignment = Alignment.Center
             ){
-                Card (
+                Card(
                     modifier = Modifier
                         .width(270.dp)
                         .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color.White
-                    )
+                        containerColor = Color.White)
                 )
                 {
                     Column(
@@ -2849,6 +2863,8 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Tour de la pelota vasca",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2857,10 +2873,11 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "no podéis perderos este tour de la pelota vasca. Os contaremos todo sobre este deporte y os convertiréis en pelotari por un día. ¡Bienvenidos a la Comarca del Urola!",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
                         )
                         Box(
                             modifier = Modifier
@@ -2908,6 +2925,8 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Excursión a un caserío vasco",
                             fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier
                                 .padding(10.dp)
@@ -2918,7 +2937,7 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
+                            color = colorResource(id = R.color.black2),
                         )
                         Box(
                             modifier = Modifier
@@ -2948,11 +2967,11 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
                         .width(270.dp)
-                        .background(color = Color.White),
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier
@@ -2964,6 +2983,8 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "ROOFTOP VERMOUTH",
+                            color = colorResource(id = R.color.black2),
+
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(10.dp)
@@ -2972,7 +2993,7 @@ fun actividadesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                             text = "Te esperan vistas increíbles e historias asombrosas. Todos los sábados de 13.30 a 14.15 h en nuestro Rooftop. Es indispensable reservar plaza a través de la plataforma eventbrite. Punto de reunión la recepción del alojamiento.",
                             fontSize = 13.sp,
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray,
+                            color = colorResource(id = R.color.black2),
                             modifier = Modifier.padding(6.dp)
                         )
                         Box(
@@ -3054,10 +3075,11 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -3068,6 +3090,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Pension Urola",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -3076,6 +3100,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Pension Urola está en Zumárraga, a 25 km de Santuario de Arantzazu, y tiene bar, habitaciones libres de humo y wifi gratis en todo el alojamiento. El hostal o pensión dispone de habitaciones familiares.",
                             fontSize = 16.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -3107,10 +3133,11 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -3122,6 +3149,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Casa Rural Martiamuno Landetxea",
                             fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.black2),
+
                             fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(10.dp)
@@ -3129,6 +3158,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Casa Rural Martiamuno Landetxea dispone de vistas a la montaña, wifi gratis y parking privado gratis. Se encuentra en Zumárraga, a 32 km de Santuario de Arantzazu.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -3160,10 +3191,11 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -3174,6 +3206,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Hotel Mauleon",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -3182,6 +3216,8 @@ fun hotelesZumarraga(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "El Hotel Mauleon ofrece un restaurante y conexión Wi-Fi gratis en Legazpi, a 60 km de San Sebastián, en el País Vasco.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
