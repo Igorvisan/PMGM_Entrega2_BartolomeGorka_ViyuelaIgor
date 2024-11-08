@@ -1940,6 +1940,8 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Paseo en barco",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -1948,12 +1950,12 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "En plena bahía de La Concha se alza la isla de Santa Clara, uno de los símbolos de San Sebastián. ¡Acercaos hasta ella con este paseo en barco!",
                             fontSize = 13.sp,
-                            modifier = Modifier
-                                .padding(6.dp),
+                            color = colorResource(id = R.color.black2), // El color correcto del texto
+                            modifier = Modifier.padding(6.dp),
                             maxLines = 4,
-                            overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
+                            overflow = TextOverflow.Ellipsis
                         )
+
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -1999,6 +2001,8 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Tour de literatura y cine",
+                            color = colorResource(id = R.color.black2),
+
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier
@@ -2007,12 +2011,12 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "En este tour de literatura y cine por San Sebastián nos sumergiremos en la ficción de varias novelas y películas que se han ambientado en la capital de Guipúzcoa. ¡Luces, cámara, acción!",
                             fontSize = 13.sp,
-                            modifier = Modifier
-                                .padding(6.dp),
+                            color = colorResource(id = R.color.black2), // El color correcto del texto
+                            modifier = Modifier.padding(6.dp),
                             maxLines = 5,
-                            overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray
+                            overflow = TextOverflow.Ellipsis
                         )
+
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -2041,11 +2045,11 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
                         .width(270.dp)
-                        .background(color = Color.White),
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier
@@ -2058,17 +2062,20 @@ fun actividadesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Estadio Reale Arena Interactivo Guiado",
                             fontSize = 18.sp,
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(10.dp)
                         )
                         Text(
                             text = "Descubre el nuevo estadio Reale Arena en un recorrido interactivo diseñado pensando en toda la familia.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
                             maxLines = 6,
                             overflow = TextOverflow.Ellipsis,
-                            color = Color.Gray,
                             modifier = Modifier.padding(6.dp)
                         )
+
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -2150,10 +2157,11 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2164,6 +2172,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Txirrita Sagardotegia",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2172,6 +2182,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Estamos en pleno centro de San Sebastián, a un paso de la Concha. Ir de sidrería sin salir de la ciudad. El menú tradicional de sidrería elaborado con los mejores productos del mercado.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2203,10 +2215,11 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2217,6 +2230,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Trikuharri Taberna Jatetxea",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2225,6 +2240,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Taberna sencilla y acogedora que sirve platos y raciones de la cocina típica vasca.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2256,10 +2273,11 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2270,6 +2288,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Bar El Kbzón",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2278,6 +2298,8 @@ fun gastronomiaDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Bar-Restaurante de pintxos y raciones elaborados con mucho mimo y producto de temporada.Vistas maravillosas a la playa de la Zurriola.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2361,10 +2383,11 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2375,6 +2398,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Hotel Parma",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2383,6 +2408,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Este pequeño hotel goza de vistas espectaculares a la bahía de La Zurriola y está situado en pleno corazón del clásico San Sebastián, cerca del centro histórico.",
                             fontSize = 16.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2414,10 +2441,11 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2428,6 +2456,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Casual de las Olas",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2436,6 +2466,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "Casual de las Olas San Sebastián está muy bien situado en el barrio de Amara, San Sebastián, a 2,2 km de Playa de Zurriola, a 2,5 km de Playa de Ondarreta y a 2 km de Teatro Victoria Eugenia.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
@@ -2467,10 +2499,11 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
             ){
                 Card(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(270.dp),
+                        .width(270.dp)
+                        .fillMaxHeight(),
                     elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.white))
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color.White)
                 ){
                     Column(
                         modifier = Modifier.fillMaxSize()
@@ -2481,6 +2514,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         )
                         Text(
                             text = "Mercure Monte Igueldo",
+                            color = colorResource(id = R.color.black2),
+
                             fontWeight = FontWeight.Bold,
                             fontSize = 18.sp,
                             modifier = Modifier
@@ -2489,6 +2524,8 @@ fun hotelesDonosti(modifier: Modifier = Modifier, irAtras: () -> Unit){
                         Text(
                             text = "El Mercure Monte Igueldo ofrece un entorno pintoresco en el monte Igueldo y vistas impresionantes a la bahía de San Sebastián.",
                             fontSize = 13.sp,
+                            color = colorResource(id = R.color.black2),
+
                             modifier = Modifier
                                 .padding(6.dp),
                             overflow = TextOverflow.Ellipsis
